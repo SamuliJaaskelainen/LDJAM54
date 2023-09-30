@@ -13,7 +13,10 @@ public class Player : MonoBehaviour
     public float strafeSpeed;
     public float jumpPower;
     public float gravity;
+    public float attackRate;
+    public float attackDistance;
     float upVelocity = 0.0f;
+    float attackTimer;
     RaycastHit hit;
 
     void Start()
@@ -78,11 +81,22 @@ public class Player : MonoBehaviour
             }
         }
 
-
         Vector3 movement = transform.TransformDirection(new Vector3(rightMovement, upVelocity, forwardMovement) * Time.deltaTime);
 
-
         characterController.Move(movement);
+
+        if (attack && Time.time > attackTimer)
+        {
+            Debug.Log("Attack!");
+            attackTimer = Time.time + attackRate;
+            if (Physics.Raycast(transform.position, transform.forward, out hit, attackDistance, collisionLayers))
+            {
+                if(hit.transform.tag == "Enemy")
+                {
+                    hit.transform.SendMessage("Die");
+                }
+            }
+        }
 
         Vector2 rotation = new Vector2(Mouse.current.delta.x.value, Mouse.current.delta.y.value) * mouseSensitivity;
         transform.Rotate(Vector3.up, rotation.x, Space.World);
