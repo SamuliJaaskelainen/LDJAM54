@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
-using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-    public const int PLAYER_START_HEALTH = 10;
+    public const int PLAYER_START_HEALTH = 9999;
     [SerializeField] CharacterController characterController;
     [SerializeField] LayerMask collisionLayers;
     [SerializeField] Transform head;
@@ -16,6 +15,7 @@ public class Player : MonoBehaviour
     public float forwardSpeed;
     public float strafeSpeed;
     public float jumpPower;
+    public float barrelRollSpeed;
     public float gravity;
     public float groundDrag;
     public float airDrag;
@@ -28,6 +28,9 @@ public class Player : MonoBehaviour
     Vector2 xzVelocity = Vector2.zero;
     float attackTimer;
     RaycastHit hit;
+    float headRotationUp = 0.0f;
+    float barrelRoll = 0.0f;
+    bool doingBarrerlRoll = false;
 
     void Update()
     {
@@ -82,6 +85,7 @@ public class Player : MonoBehaviour
         {
             upVelocity = bounceForceUp;
             forwardMovement = bounceForceForward;
+            doingBarrerlRoll = true;
         }
 
         if (!characterController.isGrounded)
@@ -126,7 +130,19 @@ public class Player : MonoBehaviour
 
         Vector2 rotation = new Vector2(Mouse.current.delta.x.value, Mouse.current.delta.y.value) * mouseSensitivity;
         transform.Rotate(Vector3.up, rotation.x, Space.World);
-        head.Rotate(Vector3.right, -rotation.y, Space.Self);
+
+        headRotationUp -= rotation.y;
+        headRotationUp = Mathf.Clamp(headRotationUp, -90.0f, 90.0f);
+        if(doingBarrerlRoll)
+        {
+            barrelRoll += Time.deltaTime * barrelRollSpeed;
+            if(barrelRoll > 360.0f)
+            {
+                barrelRoll = 0.0f;
+                doingBarrerlRoll = false;
+            }
+        }
+        head.localEulerAngles = new Vector3(headRotationUp + barrelRoll, 0.0f, 0.0f);
 
         health -= Time.deltaTime;
         healthUi.text = Mathf.CeilToInt(health).ToString();
