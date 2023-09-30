@@ -13,9 +13,14 @@ public class Player : MonoBehaviour
     public float strafeSpeed;
     public float jumpPower;
     public float gravity;
+    public float groundDrag;
+    public float airDrag;
     public float attackRate;
     public float attackDistance;
+    public float bounceForceUp;
+    public float bounceForceForward;
     float upVelocity = 0.0f;
+    Vector2 xzVelocity = Vector2.zero;
     float attackTimer;
     RaycastHit hit;
 
@@ -26,12 +31,12 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if(Cursor.lockState != CursorLockMode.Locked)
+        if (Cursor.lockState != CursorLockMode.Locked)
         {
             Cursor.lockState = CursorLockMode.Locked;
         }
 
-        if(Cursor.visible)
+        if (Cursor.visible)
         {
             Cursor.visible = false;
         }
@@ -41,10 +46,11 @@ public class Player : MonoBehaviour
         bool jump = Input.GetKey(KeyCode.Space);
         bool bounce = Mouse.current.rightButton.isPressed;
         bool attack = Mouse.current.leftButton.isPressed;
+        bool headCollision = Physics.Raycast(transform.position, Vector3.up, characterController.height, collisionLayers);
 
-        if (Input.GetKey(KeyCode.W)) 
+        if (Input.GetKey(KeyCode.W))
         {
-            forwardMovement = 1.0f;        
+            forwardMovement = 1.0f;
         }
         else if (Input.GetKey(KeyCode.S))
         {
@@ -63,25 +69,39 @@ public class Player : MonoBehaviour
         forwardMovement *= forwardSpeed;
         rightMovement *= strafeSpeed;
 
-        if(characterController.isGrounded && jump)
+        if (characterController.isGrounded && jump && !headCollision)
         {
             upVelocity = jumpPower;
         }
+        else if (characterController.isGrounded && bounce && !headCollision)
+        {
+            upVelocity = bounceForceUp;
+            forwardMovement = bounceForceForward;
+        }
 
-        if(!characterController.isGrounded)
+        if (!characterController.isGrounded)
         {
             upVelocity += gravity;
         }
 
-        if(Physics.Raycast(transform.position, Vector3.up, characterController.height, collisionLayers))
+        if(headCollision)
         {
-            if(upVelocity > 0.0f)
+            if (upVelocity > 0.0f)
             {
                 upVelocity = 0.0f;
             }
         }
 
-        Vector3 movement = transform.TransformDirection(new Vector3(rightMovement, upVelocity, forwardMovement) * Time.deltaTime);
+        xzVelocity += new Vector2(rightMovement, forwardMovement);
+
+        float multiplier = Mathf.Pow(characterController.isGrounded ? groundDrag : airDrag, Time.deltaTime * 60.0f);
+        if (xzVelocity.x * xzVelocity.x + xzVelocity.y * xzVelocity.y < 0.1f)
+        {
+            multiplier = 0.0f;
+        }
+        xzVelocity *= multiplier;
+
+        Vector3 movement = transform.TransformDirection(new Vector3(xzVelocity.x, upVelocity, xzVelocity.y) * Time.deltaTime);
 
         characterController.Move(movement);
 
