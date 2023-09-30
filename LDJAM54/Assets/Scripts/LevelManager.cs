@@ -36,7 +36,13 @@ public class LevelManager : MonoBehaviour
         if(deadEnemies == enemies.Count)
         {
             Debug.Log("WIN");
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
+    }
+
+    public void Lose()
+    {
+        Debug.Log("LOSE");
+        SceneManager.LoadScene(0);
     }
 }
