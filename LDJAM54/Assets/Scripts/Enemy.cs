@@ -31,6 +31,7 @@ public class Enemy : MonoBehaviour
             isDead = true;
             enabled = false;
             GetComponent<BoxCollider>().enabled = false;
+            agent.isStopped = true;
             LevelManager.Instance.CheckForWin();
 
             GetComponentInChildren<SpriteAnimation>().runAnimation(1);
