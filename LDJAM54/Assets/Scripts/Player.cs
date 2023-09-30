@@ -137,8 +137,7 @@ public class Player : MonoBehaviour
         
         if(health <= 0)
         {
-            Debug.Log("YOU LOST");
-            SceneManager.LoadScene(0);
+            LevelManager.Instance.Lose();
         }
     }
 }
