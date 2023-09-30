@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 421be06ce57939a4d88523fbb742eb8e, type: 3}
   m_Name: Enemai2Shoot
   m_EditorClassIdentifier: 
-  prefabName: 
-  stopAtEnd: 0
+  animationName: Enemai 2 Shoot
   sprites:
   - {fileID: 2100000, guid: b36f54425ba92f6419cd3952de44b7f8, type: 2}
   changeInterval: 0.2
+  stopAtEnd: 0

@@ -7,6 +7,7 @@ using UnityEngine;
 public class AnimationScriptableObject : ScriptableObject
 {
     [SerializeField] string animationName;
+    public string AnimationName { get => animationName; }
 
     [SerializeField] Material[] sprites;
     public Material[] Sprites { get => sprites; }

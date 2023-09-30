@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 421be06ce57939a4d88523fbb742eb8e, type: 3}
   m_Name: Eamney1Shoot
   m_EditorClassIdentifier: 
-  prefabName: 
+  animationName: Eamney 1 Shoot
   sprites:
   - {fileID: 2100000, guid: 7da519f6ed4a71a46b2d2b16cb74f951, type: 2}
   changeInterval: 0.5
+  stopAtEnd: 0

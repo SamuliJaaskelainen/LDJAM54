@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 421be06ce57939a4d88523fbb742eb8e, type: 3}
   m_Name: Enemey1Die
   m_EditorClassIdentifier: 
-  prefabName: 
-  stopAtEnd: 1
+  animationName: Enemey 1 Die
   sprites:
   - {fileID: 2100000, guid: 13a99a178a204a348860b4b22902aede, type: 2}
   - {fileID: 2100000, guid: e6c7cf85a0cea2d43b99e066db67f3e7, type: 2}
   - {fileID: 2100000, guid: 475c5fec71b8b324b9573a5bd447fc14, type: 2}
   - {fileID: 2100000, guid: 948984928893bc543a70955aa03ebbad, type: 2}
   changeInterval: 0.5
+  stopAtEnd: 1

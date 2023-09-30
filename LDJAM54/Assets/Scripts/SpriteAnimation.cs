@@ -26,6 +26,11 @@ public class SpriteAnimation : MonoBehaviour
     {
         currentAnimation = animations[index];
         previousFrameTime = Time.time;
+
+        spriteIndex = 0;
+        UpdateToSprite(spriteIndex);
+
+        Debug.Log("Changed to " + currentAnimation.AnimationName + " " + spriteIndex);
     }
 
     void Update()
@@ -39,9 +44,14 @@ public class SpriteAnimation : MonoBehaviour
                 else spriteIndex = 0;
             }
 
-            GetComponent<MeshRenderer>().material = currentAnimation.Sprites[spriteIndex];
+            UpdateToSprite(spriteIndex);
 
             previousFrameTime += currentAnimation.ChangeInterval;
         }
+    }
+
+    void UpdateToSprite(int index)
+    {
+        GetComponent<MeshRenderer>().material = currentAnimation.Sprites[spriteIndex];
     }
 }

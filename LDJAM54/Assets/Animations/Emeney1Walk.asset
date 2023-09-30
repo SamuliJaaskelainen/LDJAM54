@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 421be06ce57939a4d88523fbb742eb8e, type: 3}
   m_Name: Emeney1Walk
   m_EditorClassIdentifier: 
-  prefabName: 
+  animationName: Emeney 1 Walk
   sprites:
   - {fileID: 2100000, guid: bdcb4791a5fce2d478ce512ebe5bd1b1, type: 2}
   - {fileID: 2100000, guid: 71583cf1775934040b33085010c43443, type: 2}
   changeInterval: 0.3
+  stopAtEnd: 0

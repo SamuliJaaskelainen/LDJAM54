@@ -33,7 +33,7 @@ public class Enemy : MonoBehaviour
             GetComponent<BoxCollider>().enabled = false;
             LevelManager.Instance.CheckForWin();
 
-            GetComponent<SpriteAnimation>().runAnimation(1);
+            GetComponentInChildren<SpriteAnimation>().runAnimation(1);
         }
     }
 }
