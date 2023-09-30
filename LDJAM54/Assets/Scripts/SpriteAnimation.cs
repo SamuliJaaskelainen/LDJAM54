@@ -45,7 +45,29 @@ public class SpriteAnimation : MonoBehaviour
 
     void Update()
     {
-        while (Time.time > previousFrameTime + currentAnimation.ChangeInterval)
+        if (Time.time > previousFrameTime + currentAnimation.ChangeInterval)
+        {
+            ++spriteIndex;
+            if (spriteIndex >= currentAnimation.Sprites.Length)
+            {
+                if (currentAnimation.StopAtEnd) 
+                {
+                    spriteIndex = currentAnimation.Sprites.Length - 1; // Keep it at the last sprite.
+                }
+                else
+                {
+                    spriteIndex = 0;
+                }
+            }
+
+            UpdateToSprite(spriteIndex);
+
+            previousFrameTime = Time.time; // Update the previousFrameTime.
+        }
+
+        // The code below is the same as the code above, except it's broken and doesn't work.
+        // Probably because it uses a while loop, and a while loop inside of Update() seems to break things.
+        /*while (Time.time > previousFrameTime + currentAnimation.ChangeInterval)
         {
             ++spriteIndex;
             if (spriteIndex >= currentAnimation.Sprites.Length)
@@ -57,7 +79,7 @@ public class SpriteAnimation : MonoBehaviour
             UpdateToSprite(spriteIndex);
 
             previousFrameTime += currentAnimation.ChangeInterval;
-        }
+        }*/
     }
 
     void UpdateToSprite(int index)
