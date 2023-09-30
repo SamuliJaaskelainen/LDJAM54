@@ -10,10 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 421be06ce57939a4d88523fbb742eb8e, type: 3}
-  m_Name: Eamney1Shoot
+  m_Name: Enemy2Die
   m_EditorClassIdentifier: 
-  animationName: Eamney 1 Shoot
+  animationName: Enemy 2 Die
   sprites:
-  - {fileID: 2100000, guid: 7da519f6ed4a71a46b2d2b16cb74f951, type: 2}
-  changeInterval: 0.5
-  stopAtEnd: 0
+  - {fileID: 2100000, guid: b585fbe932964ac4b8afb111a336e866, type: 2}
+  - {fileID: 2100000, guid: 7df60a640167fe24f87b67bb1e4bbbd2, type: 2}
+  - {fileID: 2100000, guid: 6913a93c9cb1fdd4faa048a1d88aa510, type: 2}
+  - {fileID: 2100000, guid: d81405c44775a4e43b3509af4c50f483, type: 2}
+  changeInterval: 0.2
+  stopAtEnd: 1
