@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animationName: Enemy 1 Shoot
   sprites:
-  - {fileID: 2100000, guid: 7da519f6ed4a71a46b2d2b16cb74f951, type: 2}
+  - {fileID: 2800000, guid: d3e9852438e475b4c829e5fb7f246f11, type: 3}
   changeInterval: 0.5
   stopAtEnd: 0

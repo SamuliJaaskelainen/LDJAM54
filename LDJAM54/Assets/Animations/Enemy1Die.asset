@@ -14,9 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animationName: Enemy 1 Die
   sprites:
-  - {fileID: 2100000, guid: 13a99a178a204a348860b4b22902aede, type: 2}
-  - {fileID: 2100000, guid: e6c7cf85a0cea2d43b99e066db67f3e7, type: 2}
-  - {fileID: 2100000, guid: 475c5fec71b8b324b9573a5bd447fc14, type: 2}
-  - {fileID: 2100000, guid: 948984928893bc543a70955aa03ebbad, type: 2}
-  changeInterval: 0.5
+  - {fileID: 2800000, guid: 57f1e456441a0d3488e534289dd41f5e, type: 3}
+  - {fileID: 2800000, guid: ef08ef6650b4e4a42b60c7ae342e1309, type: 3}
+  - {fileID: 2800000, guid: 6aad75b41dd0d404293bb6a1829a7094, type: 3}
+  - {fileID: 2800000, guid: 449a5f6bcf52c2c4b8d685b937b60cc0, type: 3}
+  - {fileID: 2800000, guid: d5eea89d0ac8780469f2f89cd1847569, type: 3}
+  - {fileID: 2800000, guid: f293c46ba45d4da41a1e479f4e002e84, type: 3}
+  - {fileID: 2800000, guid: 204554e223942bc4397baa35d43199f1, type: 3}
+  - {fileID: 2800000, guid: b99dbb9d470d11c408292aa3850587ad, type: 3}
+  - {fileID: 2800000, guid: 0cc66cd14b7cb354d81000d639af7b89, type: 3}
+  - {fileID: 2800000, guid: 70b710c3eab5903498f6c43e9a33a457, type: 3}
+  changeInterval: 0.2
   stopAtEnd: 1

@@ -11,6 +11,9 @@ public class SpriteAnimation : MonoBehaviour
 
     AnimationScriptableObject currentAnimation;
 
+    private Material spriteMaterial;
+    
+
 
     int spriteIndex = 0;
     float previousFrameTime;
@@ -20,6 +23,13 @@ public class SpriteAnimation : MonoBehaviour
         currentAnimation = defaultAnimation;
 
         previousFrameTime = Time.time;
+        
+        // duplicate the material on the renderer so we can change the texture
+        spriteMaterial = new Material(GetComponent<Renderer>().material);
+        
+        GetComponent<Renderer>().material = spriteMaterial;
+        
+        
     }
 
     public void runAnimation(int index)
@@ -52,6 +62,7 @@ public class SpriteAnimation : MonoBehaviour
 
     void UpdateToSprite(int index)
     {
-        GetComponent<MeshRenderer>().material = currentAnimation.Sprites[spriteIndex];
+        spriteMaterial.mainTexture = currentAnimation.Sprites[index];
+        
     }
 }
