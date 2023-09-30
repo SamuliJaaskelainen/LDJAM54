@@ -6,11 +6,15 @@ using UnityEngine.InputSystem;
 public class Player : MonoBehaviour
 {
     [SerializeField] CharacterController characterController;
+    [SerializeField] LayerMask collisionLayers;
     [SerializeField] Transform head;
     public float mouseSensitivity = 1.0f;
     public float forwardSpeed;
     public float strafeSpeed;
-    Vector3 lastMousePosition = Vector3.zero;
+    public float jumpPower;
+    public float gravity;
+    float upVelocity = 0.0f;
+    RaycastHit hit;
 
     void Start()
     {
@@ -31,6 +35,9 @@ public class Player : MonoBehaviour
 
         float forwardMovement = 0.0f;
         float rightMovement = 0.0f;
+        bool jump = Input.GetKey(KeyCode.Space);
+        bool bounce = Mouse.current.rightButton.isPressed;
+        bool attack = Mouse.current.leftButton.isPressed;
 
         if (Input.GetKey(KeyCode.W)) 
         {
@@ -53,8 +60,29 @@ public class Player : MonoBehaviour
         forwardMovement *= forwardSpeed;
         rightMovement *= strafeSpeed;
 
-        Vector3 movement = new Vector3(rightMovement, 0.0f, forwardMovement) * Time.deltaTime;
-        characterController.Move(transform.TransformDirection(movement));
+        if(characterController.isGrounded && jump)
+        {
+            upVelocity = jumpPower;
+        }
+
+        if(!characterController.isGrounded)
+        {
+            upVelocity += gravity;
+        }
+
+        if(Physics.Raycast(transform.position, Vector3.up, characterController.height, collisionLayers))
+        {
+            if(upVelocity > 0.0f)
+            {
+                upVelocity = 0.0f;
+            }
+        }
+
+
+        Vector3 movement = transform.TransformDirection(new Vector3(rightMovement, upVelocity, forwardMovement) * Time.deltaTime);
+
+
+        characterController.Move(movement);
 
         Vector2 rotation = new Vector2(Mouse.current.delta.x.value, Mouse.current.delta.y.value) * mouseSensitivity;
         transform.Rotate(Vector3.up, rotation.x, Space.World);
