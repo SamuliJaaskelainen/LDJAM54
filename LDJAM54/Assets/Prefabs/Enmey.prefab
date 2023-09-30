@@ -119,8 +119,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af8616b2f45e1e248881d96b28765ef9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultAnimation: {fileID: 11400000, guid: 1bfefda0294e9504b88e33bd487a26b6, type: 2}
-  animations: []
+  defaultAnimation: {fileID: 11400000, guid: dda4c0e9f59d88444975f80c08a5b662, type: 2}
+  animations:
+  - {fileID: 11400000, guid: dda4c0e9f59d88444975f80c08a5b662, type: 2}
+  - {fileID: 11400000, guid: 170e919c3cc07fa478ecc6ce6b8398e3, type: 2}
+  - {fileID: 11400000, guid: 24197ddd7b8eece44928e6bcd189b891, type: 2}
 --- !u!1 &9217896832142978517
 GameObject:
   m_ObjectHideFlags: 0

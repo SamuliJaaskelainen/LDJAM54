@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: Ermeny2Die
   m_EditorClassIdentifier: 
   prefabName: 
+  stopAtEnd: 1
   sprites:
   - {fileID: 2100000, guid: b585fbe932964ac4b8afb111a336e866, type: 2}
   - {fileID: 2100000, guid: 7df60a640167fe24f87b67bb1e4bbbd2, type: 2}
   - {fileID: 2100000, guid: 6913a93c9cb1fdd4faa048a1d88aa510, type: 2}
-  changeInterval: 0
+  - {fileID: 2100000, guid: d81405c44775a4e43b3509af4c50f483, type: 2}
+  changeInterval: 0.2

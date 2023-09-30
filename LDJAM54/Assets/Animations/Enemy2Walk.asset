@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Enemy2Walk
   m_EditorClassIdentifier: 
   prefabName: 
+  stopAtEnd: 0
   sprites:
   - {fileID: 2100000, guid: 445801a94afac5f4aba6fb5a831ba3b4, type: 2}
   - {fileID: 2100000, guid: a50cc7ed56dd1084d95908ec33404f6e, type: 2}
-  changeInterval: 0
+  changeInterval: 0.2

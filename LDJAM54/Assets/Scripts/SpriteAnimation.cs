@@ -22,9 +22,10 @@ public class SpriteAnimation : MonoBehaviour
         previousFrameTime = Time.time;
     }
 
-    void runAnimation(int index)
+    public void runAnimation(int index)
     {
         currentAnimation = animations[index];
+        previousFrameTime = Time.time;
     }
 
     void Update()
@@ -32,7 +33,11 @@ public class SpriteAnimation : MonoBehaviour
         while (Time.time > previousFrameTime + currentAnimation.ChangeInterval)
         {
             ++spriteIndex;
-            if (spriteIndex >= currentAnimation.Sprites.Length) spriteIndex = 0;
+            if (spriteIndex >= currentAnimation.Sprites.Length)
+            {
+                if (currentAnimation.StopAtEnd) spriteIndex = animations.Length - 1;
+                else spriteIndex = 0;
+            }
 
             GetComponent<MeshRenderer>().material = currentAnimation.Sprites[spriteIndex];
 

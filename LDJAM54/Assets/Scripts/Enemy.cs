@@ -26,12 +26,14 @@ public class Enemy : MonoBehaviour
     {
         Debug.Log("Kill enemy!");
 
-        isDead = true;
-        enabled = false;
-        GetComponent<BoxCollider>().enabled = false;
-        LevelManager.Instance.CheckForWin();
+        if (isDead == false)
+        {
+            isDead = true;
+            enabled = false;
+            GetComponent<BoxCollider>().enabled = false;
+            LevelManager.Instance.CheckForWin();
 
-        // TODO: Add death animation and leave body on the ground instead of destroying the object
-        Destroy(gameObject);
+            GetComponent<SpriteAnimation>().runAnimation(1);
+        }
     }
 }
