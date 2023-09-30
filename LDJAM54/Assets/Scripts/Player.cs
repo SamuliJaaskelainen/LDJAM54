@@ -24,13 +24,12 @@ public class Player : MonoBehaviour
     public float bounceForceUp;
     public float bounceForceForward;
     public static float health = PLAYER_START_HEALTH;
-    float upVelocity = 0.0f;
-    Vector2 xzVelocity = Vector2.zero;
+    Vector3 velocity = Vector3.zero;
     float attackTimer;
     RaycastHit hit;
     float headRotationUp = 0.0f;
     float barrelRoll = 0.0f;
-    bool doingBarrerlRoll = false;
+    bool doingBarrelRoll = false;
 
     void Update()
     {
@@ -49,12 +48,14 @@ public class Player : MonoBehaviour
             Cursor.visible = false;
         }
 
+        // Get player action data
         float forwardMovement = 0.0f;
         float rightMovement = 0.0f;
         bool jump = Input.GetKey(KeyCode.Space);
         bool bounce = Mouse.current.rightButton.isPressed;
         bool attack = Mouse.current.leftButton.isPressed;
         bool headCollision = Physics.Raycast(transform.position, Vector3.up, characterController.height, collisionLayers);
+        Vector2 mouseDelta = new Vector2(Mouse.current.delta.x.value, Mouse.current.delta.y.value) * mouseSensitivity;
 
         if (Input.GetKey(KeyCode.W))
         {
@@ -74,46 +75,50 @@ public class Player : MonoBehaviour
             rightMovement = -1.0f;
         }
 
-        forwardMovement *= forwardSpeed;
-        rightMovement *= strafeSpeed;
-
-        if (characterController.isGrounded && jump && !headCollision)
+        // Y movement
+        if(characterController.isGrounded)
         {
-            upVelocity = jumpPower;
-        }
-        else if (characterController.isGrounded && bounce && !headCollision)
-        {
-            upVelocity = bounceForceUp;
-            forwardMovement = bounceForceForward;
-            doingBarrerlRoll = true;
-        }
-
-        if (!characterController.isGrounded)
-        {
-            upVelocity += gravity;
-        }
-
-        if(headCollision)
-        {
-            if (upVelocity > 0.0f)
+            if (jump && !headCollision)
             {
-                upVelocity = 0.0f;
+                velocity.y = jumpPower;
+            }
+            else if (bounce && !headCollision)
+            {
+                velocity.y = bounceForceUp;
+                forwardMovement = bounceForceForward;
+                doingBarrelRoll = true;
+            }
+        }
+        else
+        {
+            velocity.y += gravity * Time.deltaTime;
+
+            if (headCollision)
+            {
+                if (velocity.y > 0.0f)
+                {
+                    velocity.y = 0.0f;
+                }
             }
         }
 
-        xzVelocity += new Vector2(rightMovement, forwardMovement);
+        // XZ movement
+        forwardMovement *= forwardSpeed * Time.deltaTime;
+        rightMovement *= strafeSpeed * Time.deltaTime;
+        velocity += new Vector3(rightMovement, 0.0f, forwardMovement);
 
-        float multiplier = Mathf.Pow(characterController.isGrounded ? groundDrag : airDrag, Time.deltaTime * 60.0f);
-        if (xzVelocity.x * xzVelocity.x + xzVelocity.y * xzVelocity.y < 0.1f)
+        float velocityMultiplier = Mathf.Pow(characterController.isGrounded ? groundDrag : airDrag, Time.deltaTime * 60.0f);
+        if (velocity.x * velocity.x + velocity.z * velocity.z < 0.01f)
         {
-            multiplier = 0.0f;
+            velocityMultiplier = 0.0f;
         }
-        xzVelocity *= multiplier;
+        velocity.x *= velocityMultiplier;
+        velocity.z *= velocityMultiplier;
 
-        Vector3 movement = transform.TransformDirection(new Vector3(xzVelocity.x, upVelocity, xzVelocity.y) * Time.deltaTime);
+        // Apply movement
+        characterController.Move(transform.TransformDirection(velocity * Time.deltaTime));
 
-        characterController.Move(movement);
-
+        // Update attack
         if (attack && Time.time > attackTimer)
         {
             Debug.Log("Attack!");
@@ -128,25 +133,26 @@ public class Player : MonoBehaviour
             }
         }
 
-        Vector2 rotation = new Vector2(Mouse.current.delta.x.value, Mouse.current.delta.y.value) * mouseSensitivity;
-        transform.Rotate(Vector3.up, rotation.x, Space.World);
+        // Rotate character
+        transform.Rotate(Vector3.up, mouseDelta.x, Space.World);
 
-        headRotationUp -= rotation.y;
+        // Rotate camera
+        headRotationUp -= mouseDelta.y;
         headRotationUp = Mathf.Clamp(headRotationUp, -90.0f, 90.0f);
-        if(doingBarrerlRoll)
+        if(doingBarrelRoll)
         {
             barrelRoll += Time.deltaTime * barrelRollSpeed;
             if(barrelRoll > 360.0f)
             {
                 barrelRoll = 0.0f;
-                doingBarrerlRoll = false;
+                doingBarrelRoll = false;
             }
         }
         head.localEulerAngles = new Vector3(headRotationUp + barrelRoll, 0.0f, 0.0f);
 
+        // Update HP
         health -= Time.deltaTime;
         healthUi.text = Mathf.CeilToInt(health).ToString();
-        
         if(health <= 0)
         {
             LevelManager.Instance.Lose();
