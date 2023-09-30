@@ -1,4 +1,5 @@
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 
 public class Billboard : MonoBehaviour
@@ -12,7 +13,12 @@ public class Billboard : MonoBehaviour
 
     void LateUpdate()
     {
-        transform.LookAt(mainCamera.transform);
+        Vector3 target = new Vector3
+           (mainCamera.transform.position.x,
+            transform.position.y,
+            mainCamera.transform.position.z);
+
+        transform.LookAt(target);
         transform.Rotate(0, 180, 0);
     }
 }
