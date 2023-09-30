@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     [SerializeField] LayerMask collisionLayers;
     [SerializeField] Transform head;
     [SerializeField] TextMeshProUGUI healthUi;
+    [SerializeField] AnimationCurve barrelRollCurve;
     public float mouseSensitivity = 1.0f;
     public float forwardSpeed;
     public float strafeSpeed;
@@ -91,6 +92,11 @@ public class Player : MonoBehaviour
         }
         else
         {
+            if (bounce && !headCollision)
+            {
+                doingBarrelRoll = true;
+            }
+
             velocity.y += gravity * Time.deltaTime;
 
             if (headCollision)
@@ -106,7 +112,6 @@ public class Player : MonoBehaviour
         forwardMovement *= forwardSpeed * Time.deltaTime;
         rightMovement *= strafeSpeed * Time.deltaTime;
         velocity += new Vector3(rightMovement, 0.0f, forwardMovement);
-
         float velocityMultiplier = Mathf.Pow(characterController.isGrounded ? groundDrag : airDrag, Time.deltaTime * 60.0f);
         if (velocity.x * velocity.x + velocity.z * velocity.z < 0.01f)
         {
@@ -139,16 +144,18 @@ public class Player : MonoBehaviour
         // Rotate camera
         headRotationUp -= mouseDelta.y;
         headRotationUp = Mathf.Clamp(headRotationUp, -90.0f, 90.0f);
+        float barrelRollRotation = 0.0f;
         if(doingBarrelRoll)
         {
             barrelRoll += Time.deltaTime * barrelRollSpeed;
-            if(barrelRoll > 360.0f)
+            if (barrelRoll > 1.0f)
             {
                 barrelRoll = 0.0f;
                 doingBarrelRoll = false;
             }
+            barrelRollRotation = 360.0f * barrelRollCurve.Evaluate(barrelRoll);
         }
-        head.localEulerAngles = new Vector3(headRotationUp + barrelRoll, 0.0f, 0.0f);
+        head.localEulerAngles = new Vector3(headRotationUp + barrelRollRotation, 0.0f, 0.0f);
 
         // Update HP
         health -= Time.deltaTime;

@@ -753,11 +753,35 @@ MonoBehaviour:
     m_Bits: 1
   head: {fileID: 5309326721954767634}
   healthUi: {fileID: 1367667156511208744}
+  barrelRollCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   mouseSensitivity: 0.2
   forwardSpeed: 33
   strafeSpeed: 33
-  jumpPower: 14
-  barrelRollSpeed: 700
+  jumpPower: 8
+  barrelRollSpeed: 1.9
   gravity: -8
   groundDrag: 0.94
   airDrag: 0.96
