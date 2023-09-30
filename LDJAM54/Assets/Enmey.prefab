@@ -119,10 +119,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af8616b2f45e1e248881d96b28765ef9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprites:
-  - {fileID: 2100000, guid: ba6de60d4af4c5044abb08456fc2331f, type: 2}
-  - {fileID: 2100000, guid: 484d054e1b9a9524f93d6d1fa331f603, type: 2}
-  changeInterval: 0.5
+  defaultAnimation: {fileID: 11400000, guid: 1bfefda0294e9504b88e33bd487a26b6, type: 2}
+  animations: []
 --- !u!1 &9217896832142978517
 GameObject:
   m_ObjectHideFlags: 0
@@ -203,3 +201,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a54f025122b375c48918d6eb4d0eab09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  agent: {fileID: 0}
+  navRate: 0
+  navDistance: 0
