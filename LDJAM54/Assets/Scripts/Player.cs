@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
     [SerializeField] CharacterController characterController;
     [SerializeField] LayerMask collisionLayers;
     [SerializeField] Transform head;
+    [SerializeField] TextMeshProUGUI healthUi;
     public float mouseSensitivity = 1.0f;
     public float forwardSpeed;
     public float strafeSpeed;
@@ -19,6 +22,7 @@ public class Player : MonoBehaviour
     public float attackDistance;
     public float bounceForceUp;
     public float bounceForceForward;
+    public float health = 10;
     float upVelocity = 0.0f;
     Vector2 xzVelocity = Vector2.zero;
     float attackTimer;
@@ -119,6 +123,7 @@ public class Player : MonoBehaviour
                 if(hit.transform.tag == "Enemy")
                 {
                     hit.transform.SendMessage("Die");
+                    health += 5;
                 }
             }
         }
@@ -126,5 +131,14 @@ public class Player : MonoBehaviour
         Vector2 rotation = new Vector2(Mouse.current.delta.x.value, Mouse.current.delta.y.value) * mouseSensitivity;
         transform.Rotate(Vector3.up, rotation.x, Space.World);
         head.Rotate(Vector3.right, -rotation.y, Space.Self);
+
+        health -= Time.deltaTime;
+        healthUi.text = Mathf.CeilToInt(health).ToString();
+        
+        if(health <= 0)
+        {
+            Debug.Log("YOU LOST");
+            SceneManager.LoadScene(0);
+        }
     }
 }
