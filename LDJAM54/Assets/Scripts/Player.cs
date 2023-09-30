@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
+    public const int PLAYER_START_HEALTH = 10;
     [SerializeField] CharacterController characterController;
     [SerializeField] LayerMask collisionLayers;
     [SerializeField] Transform head;
@@ -22,16 +23,11 @@ public class Player : MonoBehaviour
     public float attackDistance;
     public float bounceForceUp;
     public float bounceForceForward;
-    public float health = 10;
+    public static float health = PLAYER_START_HEALTH;
     float upVelocity = 0.0f;
     Vector2 xzVelocity = Vector2.zero;
     float attackTimer;
     RaycastHit hit;
-
-    void Start()
-    {
-        
-    }
 
     void Update()
     {

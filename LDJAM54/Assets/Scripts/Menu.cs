@@ -13,6 +13,7 @@ public class Menu : MonoBehaviour
 
     public void StartGame()
     {
+        Player.health = Player.PLAYER_START_HEALTH;
         SceneManager.LoadScene(1);
     }
 
