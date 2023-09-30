@@ -1625,6 +1625,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tentacle00
       objectReference: {fileID: 0}
+    - target: {fileID: 477189872113306024, guid: 49ff1d243e4a8f947a5681090202342b,
+        type: 3}
+      propertyPath: attackDistance
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1759207595896060980, guid: 49ff1d243e4a8f947a5681090202342b,
         type: 3}
       propertyPath: m_LocalScale.x
