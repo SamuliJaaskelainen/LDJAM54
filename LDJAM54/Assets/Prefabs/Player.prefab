@@ -233,12 +233,16 @@ MonoBehaviour:
     m_Bits: 1
   head: {fileID: 5309326721954767634}
   mouseSensitivity: 0.2
-  forwardSpeed: 10
-  strafeSpeed: 10
-  jumpPower: 15
+  forwardSpeed: 0.8
+  strafeSpeed: 0.6
+  jumpPower: 14
   gravity: -0.2
+  groundDrag: 0.9
+  airDrag: 0.95
   attackRate: 0.33
   attackDistance: 1
+  bounceForceUp: 8
+  bounceForceForward: 60
 --- !u!1 &4176104648207272350
 GameObject:
   m_ObjectHideFlags: 0
