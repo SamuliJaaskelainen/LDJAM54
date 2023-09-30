@@ -3284,6 +3284,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4425f6949e81b934f907d88b7bcefe35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterController: {fileID: 2060763434}
+  head: {fileID: 330585546}
+  mouseSensitivity: 0.2
+  forwardSpeed: 10
+  strafeSpeed: 10
 --- !u!143 &2060763434
 CharacterController:
   m_ObjectHideFlags: 0
