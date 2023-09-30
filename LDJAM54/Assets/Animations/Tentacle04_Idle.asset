@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 421be06ce57939a4d88523fbb742eb8e, type: 3}
+  m_Name: Tentacle04_Idle
+  m_EditorClassIdentifier: 
+  animationName: Tentacle04_Idle
+  sprites:
+  - {fileID: 2800000, guid: 698b48a4727df1944a7d443447b073da, type: 3}
+  - {fileID: 2800000, guid: 05eb0fe06f3b3f44f9aa1b7e4b5922e7, type: 3}
+  - {fileID: 2800000, guid: 797c604d163966348a6849552f345b36, type: 3}
+  - {fileID: 2800000, guid: e82222e3153413c41875c0809bf5db84, type: 3}
+  - {fileID: 2800000, guid: f4ee968b1f626f342aa8db4ffab2ddcf, type: 3}
+  - {fileID: 2800000, guid: 3e1142ae44bf48b4499faa4bdf288b2a, type: 3}
+  - {fileID: 2800000, guid: 9cf62c1a8d209d64a9c2cec7fc86e047, type: 3}
+  - {fileID: 2800000, guid: 4a17df15edda3c24c9ea6a321c914426, type: 3}
+  changeInterval: 0.12
+  stopAtEnd: 0
