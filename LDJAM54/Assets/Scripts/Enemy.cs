@@ -17,6 +17,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] int attackAmountBeforeCooldown;
     [SerializeField] float attackCooldown;
     [SerializeField] float attackRange;
+    [SerializeField] private float enemyType;
 
     public bool isDead = false;
 
@@ -26,7 +27,6 @@ public class Enemy : MonoBehaviour
     int attacks;
     float attackTimer;
     bool justAttacked = false;
-    private bool playingFlameSound = false;
 
     void Update()
     {
@@ -59,20 +59,11 @@ public class Enemy : MonoBehaviour
                             Projectile newProjectile = Instantiate(projectile, bulletSpawnPoint, Quaternion.identity).GetComponent<Projectile>();
                             newProjectile.direction = (Player.Instance.transform.position - bulletSpawnPoint).normalized;
                             attacks++;
-                            if (!playingFlameSound)
-                            {
-                                playingFlameSound = true;
-                                AudioManager.Instance.PlaySound(22, transform.position, 0.2f, 1f, false);
-                            }
-
+                            PlayShootSound();
                             if(attacks >= attackAmountBeforeCooldown)
                             {
                                 attacks = 0;
                                 attackTimer = Time.time + attackCooldown;
-                                if (playingFlameSound) {
-                                    playingFlameSound = false;
-                                    AudioManager.Instance.PlaySound(22, transform.position, 0.2f, 1f, false);
-                                }
                             }
                         }
                     }
@@ -122,5 +113,20 @@ public class Enemy : MonoBehaviour
     private void PlayDeathSound()
     {
         AudioManager.Instance.PlaySound(Random.Range(23, 29), transform.position, 0.35f, 1f, false);
+    }
+    
+    private void PlayShootSound()
+    {
+        switch (enemyType) {
+            case 0:
+                AudioManager.Instance.PlaySound(Random.Range(33, 37), transform.position, 0.35f, 1f, false);
+                break;
+            case 1:
+                AudioManager.Instance.PlaySound(Random.Range(29, 33), transform.position, 0.35f, 1f, false);
+                break;
+            case 2:
+                break;
+                
+        }
     }
 }
