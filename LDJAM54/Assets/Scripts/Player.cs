@@ -18,6 +18,8 @@ public class Player : MonoBehaviour
     [SerializeField] Transform heartUI;
     [SerializeField] AnimationCurve heartCurve;
     [SerializeField] LayerMask attackLayers;
+    [SerializeField] GameObject help;
+    [SerializeField] GameObject helpHelp;
     public float mouseSensitivity = 1.0f;
     public float forwardSpeed;
     public float strafeSpeed;
@@ -54,11 +56,30 @@ public class Player : MonoBehaviour
     {
         Instance = this;
         animationArray = GetComponentsInChildren<SpriteAnimation>();
+        help.SetActive(false);
     }
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        // Generic actions
+        helpHelp.SetActive(killCount < 3);
+        if (Input.GetKeyDown(KeyCode.F1))
+        {
+            help.SetActive(!help.activeSelf);
+            Time.timeScale = help.activeSelf ? 0.0f : 1.0f;
+        }
+
+        if (Input.GetKey(KeyCode.PageUp))
+        {
+            mouseSensitivity += Time.unscaledDeltaTime * 0.1f;
+        }
+        else if (Input.GetKey(KeyCode.PageDown))
+        {
+            mouseSensitivity -= Time.unscaledDeltaTime * 0.1f;
+        }
+        mouseSensitivity = Mathf.Clamp(mouseSensitivity, 0.001f, 3.0f);
+
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             Application.Quit();
         }
