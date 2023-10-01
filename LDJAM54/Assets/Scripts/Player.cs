@@ -1,15 +1,17 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
 using UnityEngine.SceneManagement;
+using Random = UnityEngine.Random;
 
 public class Player : MonoBehaviour
 {
     public static Player Instance;
 
-    public const int PLAYER_START_HEALTH = 2000;
+    public const int PLAYER_START_HEALTH = 20;
     [SerializeField] CharacterController characterController;
     [SerializeField] LayerMask collisionLayers;
     [SerializeField] Transform head;
@@ -209,6 +211,7 @@ public class Player : MonoBehaviour
             Debug.Log("Attack!");
             Debug.DrawRay(transform.position, transform.forward * attackDistance, Color.yellow, duration:1);
             attackTimer = Time.time + attackRate;
+            PlayAttackSound();
             
             // cast a sphere starting slightly behind you so you can hit enemies that are close
             if (Physics.SphereCast(transform.position - (transform.forward * attackRadius), attackRadius, 
@@ -353,6 +356,11 @@ public class Player : MonoBehaviour
     {
         AudioManager.Instance.PlaySound(Random.Range(10,14), transform.position, 0.5f);
 
+    }
+
+    private void PlayAttackSound()
+    {
+        AudioManager.Instance.PlaySound(Random.Range(18,22), transform.position, 0.5f);
     }
 
     public void Screenshake(float strenght)
