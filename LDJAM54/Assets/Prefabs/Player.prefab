@@ -723,9 +723,10 @@ MonoBehaviour:
   mouseSensitivity: 0.2
   forwardSpeed: 33
   strafeSpeed: 33
-  jumpPower: 8
+  jumpPower: 2
+  jumpPowerAdd: 77
   barrelRollSpeed: 1.9
-  gravity: -8
+  gravity: -25
   groundDrag: 0.94
   airDrag: 0.96
   attackRate: 0.33

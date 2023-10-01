@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
 {
     public static Player Instance;
 
-    public const int PLAYER_START_HEALTH = 20;
+    public const int PLAYER_START_HEALTH = 2000;
     [SerializeField] CharacterController characterController;
     [SerializeField] LayerMask collisionLayers;
     [SerializeField] Transform head;
@@ -22,6 +22,7 @@ public class Player : MonoBehaviour
     public float forwardSpeed;
     public float strafeSpeed;
     public float jumpPower;
+    public float jumpPowerAdd;
     public float barrelRollSpeed;
     public float gravity;
     public float groundDrag;
@@ -46,6 +47,8 @@ public class Player : MonoBehaviour
     float screenshakeAmount = 0.0f;
     Vector3 screenshakeValue;
     bool wasGrounded;
+    float jumpPressedTimer;
+    bool jumpReleased = true;
 
     private void Awake()
     {
@@ -101,6 +104,8 @@ public class Player : MonoBehaviour
             if (jump && !headCollision)
             {
                 velocity.y = jumpPower;
+                jumpPressedTimer = 0.0f;
+                jumpReleased = false;
             }
             else if (bounce && !headCollision)
             {
@@ -126,6 +131,24 @@ public class Player : MonoBehaviour
                     Screenshake(10.0f);
                 }
             }
+        }
+
+        if (jump)
+        {
+            if (!jumpReleased)
+            {
+                Debug.Log("ADDD");
+                velocity.y += jumpPowerAdd * Time.deltaTime;
+                jumpPressedTimer += Time.deltaTime;
+                if (jumpPressedTimer > 0.15f)
+                {
+                    jumpReleased = true;
+                }
+            }
+        }
+        else
+        {
+            jumpReleased = true;
         }
 
         // XZ movement
