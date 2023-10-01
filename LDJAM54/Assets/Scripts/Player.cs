@@ -165,6 +165,7 @@ public class Player : MonoBehaviour
                 {
                     hit.transform.SendMessage("Die");
                     health += 5;
+                    PlayTentacleHitSound();
                 }
             }
         }
@@ -284,10 +285,18 @@ public class Player : MonoBehaviour
             health = 0.0f;
         }
         Screenshake(25.0f);
+        PlayHurtSound();
     }
     
-    private void PlayTentacleHitSound()    
+    private void PlayHurtSound()    
     {
+        AudioManager.Instance.PlaySound(Random.Range(14,18), transform.position, 0.5f);
+
+    }
+    
+    private void PlayTentacleHitSound() 
+    {
+        AudioManager.Instance.PlaySound(Random.Range(10,14), transform.position, 0.5f);
 
     }
 
