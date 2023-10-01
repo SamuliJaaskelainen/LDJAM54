@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animationName: Enemy 2 Walk
   sprites:
-  - {fileID: 2100000, guid: 445801a94afac5f4aba6fb5a831ba3b4, type: 2}
-  - {fileID: 2100000, guid: a50cc7ed56dd1084d95908ec33404f6e, type: 2}
-  changeInterval: 0.2
+  - {fileID: 2800000, guid: 1ec1606a97f9ab44c95ca497c21ac560, type: 3}
+  - {fileID: 2800000, guid: 29861de3975677e4f975874bb3ae6da3, type: 3}
+  - {fileID: 2800000, guid: 1ec1606a97f9ab44c95ca497c21ac560, type: 3}
+  - {fileID: 2800000, guid: 4c15f4e22b0742740a6475429d40e1df, type: 3}
+  changeInterval: 0.1
   stopAtEnd: 0
