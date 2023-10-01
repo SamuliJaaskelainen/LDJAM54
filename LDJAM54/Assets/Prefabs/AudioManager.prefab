@@ -69,6 +69,12 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 0f52ea697432c324099da20dda9a8a3b, type: 3}
   - {fileID: 8300000, guid: d9732ff45875bfc458c8570a37f816ef, type: 3}
   - {fileID: 8300000, guid: bd50f4408b992d844a62003f257f3d9d, type: 3}
+  - {fileID: 8300000, guid: eb5e47cb90d9cc14ebfe511ca2db078b, type: 3}
+  - {fileID: 8300000, guid: 6661436cc1396944886d8ca3de684118, type: 3}
+  - {fileID: 8300000, guid: 9bb4f8ef833db1745ac2c68190c987fb, type: 3}
+  - {fileID: 8300000, guid: b578a7eeebc7cfa449721f06f0afb777, type: 3}
+  - {fileID: 8300000, guid: ff02e26ba9bdedf488648496594f23b3, type: 3}
+  - {fileID: 8300000, guid: 7b0cd475ca8143b41b0d5ce6ecb5ebb6, type: 3}
   audioPrefab: {fileID: 7682090801806824121, guid: 0a1d74820d81da842aca293ec83af634, type: 3}
 --- !u!82 &7216114706051409908
 AudioSource:

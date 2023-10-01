@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
 {
     public static Player Instance;
 
-    public const int PLAYER_START_HEALTH = 20;
+    public const int PLAYER_START_HEALTH = 2000;
     [SerializeField] CharacterController characterController;
     [SerializeField] LayerMask collisionLayers;
     [SerializeField] Transform head;
@@ -61,8 +61,7 @@ public class Player : MonoBehaviour
         help.SetActive(false);
     }
 
-    void Update()
-    {
+    void Update() {
         // Generic actions
         helpHelp.SetActive(killCount < 3);
         if (Input.GetKeyDown(KeyCode.F1))
@@ -323,11 +322,10 @@ public class Player : MonoBehaviour
 
     private float CalculateFootstepFrequency()
     {
-        // takes square root of the sum of the squares of the x and z velocity
-        // then divides by the max speed to get a value between 0 and 1
         // so we know how often to play the footstep sound
 
         return 1.0f / Mathf.Sqrt((velocity.x * velocity.x) + (velocity.z * velocity.z));
+        
     }
 
     public void Hurt(int damage)

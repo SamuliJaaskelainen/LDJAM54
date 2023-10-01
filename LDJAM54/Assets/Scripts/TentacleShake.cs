@@ -12,7 +12,7 @@ public class TentacleShake : MonoBehaviour {
 
     [SerializeField] private Transform _tentacle = null;
 
-    private float _toggleSpeed = 2f;
+    private float _toggleSpeed = 1f;
     private bool moveCase = false;
 
     private Vector3 _startPosition;
@@ -25,17 +25,18 @@ public class TentacleShake : MonoBehaviour {
     }
 
     private void Update() {
-        if (!_enable) return;
-        
         CheckMotion();
 
     }
 
     private Vector3 TentacleStepMotion(float playerSpeed) {
-        Vector3 pos = UnityEngine.Vector3.zero;
-        pos.y += Mathf.Sin(Time.time * _frequency) * (_amplitude);//+ Random.Range(-0.05f, 0.05f);
-        pos.x += (Mathf.Cos(Time.time * (_frequency) / 2) * (_amplitude) / 2);//+ Random.Range(-0.15f, 0.15f);
-
+        Vector3 pos = UnityEngine.Vector3.zero; 
+        float moveFreq = CalculateTentacleMoveFrequency();
+        //pos.y += Mathf.Sin(Time.time * _frequency) * (_amplitude + (Random.Range(-0.002f, 0.002f) * moveFreq));
+        //pos.x += (Mathf.Cos(Time.time * (_frequency) / 2) * (_amplitude + (Random.Range(-0.05f, 0.05f) * moveFreq))/2);
+        
+        pos.y = _startPosition.y + (Random.Range(-0.002f, 0.002f) * moveFreq);
+        pos.x = _startPosition.x + (Random.Range(-0.001f, 0.001f) * moveFreq);
         return pos;
     }
 
@@ -47,7 +48,7 @@ public class TentacleShake : MonoBehaviour {
             return;
         }
         if (!_controller.isGrounded) return;
-        if (Time.time - tentacleMoveTime < CalculateTentacleMoveFrequency()) return;
+        if (Time.time - tentacleMoveTime < CalculateFootstepMoveFrequency()) return;
         
         if (moveCase) {
             PlayMotion(TentacleStepMotion(speed));
@@ -69,17 +70,23 @@ public class TentacleShake : MonoBehaviour {
         _tentacle.localPosition = Vector3.Lerp((_tentacle.localPosition), _startPosition, Time.deltaTime * 30);
     }
     
-    private float FrequencyFromMovement(float speed) {
-        return speed * 0.1f;
-    }
     
     private float CalculateTentacleMoveFrequency()
     {
         // takes square root of the sum of the squares of the x and z velocity
-        // then divides by the max speed to get a value between 0 and 1
         // so we know how often to play the footstep sound
 
-        return 1.0f / Mathf.Sqrt((_controller.velocity.x * _controller.velocity.x) + (_controller.velocity.z * _controller.velocity.z));
+        return Mathf.Sqrt((_controller.velocity.x * _controller.velocity.x) + (_controller.velocity.z * _controller.velocity.z));
     }
+    
+    private float CalculateFootstepMoveFrequency()
+    {
+        // takes square root of the sum of the squares of the x and z velocity
+        // so we know how often to play the footstep sound
+
+        return 1f/Mathf.Sqrt((_controller.velocity.x * _controller.velocity.x) + (_controller.velocity.z * _controller.velocity.z));
+    }
+
+
 }
  
