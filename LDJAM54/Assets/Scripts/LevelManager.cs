@@ -8,36 +8,56 @@ public class LevelManager : MonoBehaviour
     public static LevelManager Instance;
 
     [SerializeField] List<GameObject> enemyPrefabs = new List<GameObject>();
-    [SerializeField] List<Transform> spawns = new List<Transform>();
-    List<Enemy> enemies = new List<Enemy>();
+    [SerializeField] List<GameObject> roomPrefabs = new List<GameObject>();
+
+    Room currentRoom = null;
+    Room nextRoom = null;
 
     void Awake()
     {
         Instance = this;
 
-        for (int i = 0; i < spawns.Count; i++)
-        {
-            GameObject newEnemy = Instantiate(enemyPrefabs[Random.Range(0, enemyPrefabs.Count)], spawns[i].position, Quaternion.identity);
-            enemies.Add(newEnemy.GetComponent<Enemy>());
-        }
+        currentRoom = SpawnRoom(Vector3.zero, Vector3.zero);
+        currentRoom.startDoorway.SetActive(true);
+        nextRoom = SpawnRoom(currentRoom.endDoorway.transform.position, currentRoom.endDoorway.transform.localEulerAngles + new Vector3(90.0f, 0.0f, 0.0f));
     }
 
-    public void CheckForWin()
+    public void SpawnNextRoom()
     {
-        int deadEnemies = 0;
-        for(int i = 0; i < enemies.Count; i++)
-        {
-            if (enemies[i].isDead)
-            { 
-                deadEnemies++;
+        if (currentRoom)
+        { 
+            for(int i = 0; i < currentRoom.enemies.Count; i++)
+            {
+                if (currentRoom.enemies[i])
+                {
+                    Destroy(currentRoom.enemies[i].gameObject);
+                }
             }
+
+            Destroy(currentRoom.gameObject);
         }
 
-        if(deadEnemies == enemies.Count)
+        if(nextRoom)
         {
-            Debug.Log("WIN");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            currentRoom = nextRoom;
+            currentRoom.startDoorway.SetActive(true);
         }
+
+        nextRoom = SpawnRoom(currentRoom.endDoorway.transform.position, currentRoom.endDoorway.transform.localEulerAngles + new Vector3(90.0f, 0.0f, 0.0f));
+    }
+
+    Room SpawnRoom(Vector3 position, Vector3 euler)
+    {
+        Room room = Instantiate(roomPrefabs[Random.Range(0, roomPrefabs.Count)], position, Quaternion.Euler(euler)).GetComponent<Room>();
+        room.Init();
+
+        for (int i = 0; i < room.spawns.Count; i++)
+        {
+            GameObject newEnemy = Instantiate(enemyPrefabs[Random.Range(0, enemyPrefabs.Count)], room.spawns[i].position, Quaternion.identity);
+            room.enemies.Add(newEnemy.GetComponent<Enemy>());
+        }
+
+        return room;
     }
 
     public void Lose()

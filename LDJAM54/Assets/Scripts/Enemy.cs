@@ -32,7 +32,7 @@ public class Enemy : MonoBehaviour
             enabled = false;
             GetComponent<BoxCollider>().enabled = false;
             agent.isStopped = true;
-            LevelManager.Instance.CheckForWin();
+            Player.killCount++;
 
             GetComponentInChildren<SpriteAnimation>().runAnimation(1);
         }

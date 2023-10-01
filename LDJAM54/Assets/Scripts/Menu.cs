@@ -14,6 +14,7 @@ public class Menu : MonoBehaviour
     public void StartGame()
     {
         Player.health = Player.PLAYER_START_HEALTH;
+        Player.killCount = 0;
         SceneManager.LoadScene(1);
     }
 

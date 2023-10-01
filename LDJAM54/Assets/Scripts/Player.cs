@@ -26,6 +26,7 @@ public class Player : MonoBehaviour
     public float bounceForceUp;
     public float bounceForceForward;
     public static float health = PLAYER_START_HEALTH;
+    public static int killCount;
     Vector3 velocity = Vector3.zero;
     float attackTimer;
     RaycastHit hit;
@@ -169,6 +170,15 @@ public class Player : MonoBehaviour
         if(health <= 0)
         {
             LevelManager.Instance.Lose();
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "RoomEnd")
+        {
+            LevelManager.Instance.SpawnNextRoom();
+            Destroy(other.gameObject);
         }
     }
 }
