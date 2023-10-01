@@ -43,6 +43,9 @@ public class Player : MonoBehaviour
     bool doingBarrelRoll = false;
     float heartAnimValue = 0.0f;
     float footstepSoundTime = 0.0f;
+    float screenshakeAmount = 0.0f;
+    Vector3 screenshakeValue;
+    bool wasGrounded;
 
     private void Awake()
     {
@@ -120,6 +123,7 @@ public class Player : MonoBehaviour
                 if (velocity.y > 0.0f)
                 {
                     velocity.y = 0.0f;
+                    Screenshake(10.0f);
                 }
             }
         }
@@ -195,6 +199,20 @@ public class Player : MonoBehaviour
         }
         head.localEulerAngles = new Vector3(headRotationUp + barrelRollRotation, 0.0f, 0.0f);
 
+        // Apply screenshake
+        if(!wasGrounded && characterController.isGrounded)
+        {
+            Screenshake(10.0f);
+        }
+        screenshakeAmount -= Time.deltaTime * 100.0f;
+        if(screenshakeAmount < 0.0f)
+        {
+            screenshakeAmount = 0.0f;
+        }
+        Vector3 screenshakeTarget = Random.insideUnitSphere;
+        screenshakeValue = Vector3.RotateTowards(screenshakeValue, screenshakeTarget, Time.deltaTime * 50.0f, Time.deltaTime * 50.0f);
+        head.localEulerAngles += screenshakeValue * screenshakeAmount;
+
         // Update HP
         health -= Time.deltaTime;
         healthUi.text = Mathf.CeilToInt(health).ToString();
@@ -217,6 +235,8 @@ public class Player : MonoBehaviour
             PlayFootstepSound();
         }
 
+        // Set values for next frame
+        wasGrounded = characterController.isGrounded;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -258,11 +278,19 @@ public class Player : MonoBehaviour
         {
             health = 0.0f;
         }
-
+        Screenshake(25.0f);
     }
     
     private void PlayTentacleHitSound()    
     {
 
+    }
+
+    public void Screenshake(float strenght)
+    {
+        if(strenght > screenshakeAmount)
+        {
+            screenshakeAmount = strenght;
+        }
     }
 }

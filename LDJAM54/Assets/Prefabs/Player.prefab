@@ -719,7 +719,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   attackLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 257
   mouseSensitivity: 0.2
   forwardSpeed: 33
   strafeSpeed: 33
