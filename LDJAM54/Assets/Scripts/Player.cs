@@ -53,6 +53,7 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        animationArray = GetComponentsInChildren<SpriteAnimation>();
     }
 
     void Update()
@@ -165,11 +166,20 @@ public class Player : MonoBehaviour
 
         // Apply movement
         characterController.Move(transform.TransformDirection(velocity * Time.deltaTime));
+        
+        // If player is jumping, play jump animation
+        // THIS IS CURRENTLY BUGGED, DELETING THIS FIXES BUG
+        if (!characterController.isGrounded && !attack && !bounce && !doingBarrelRoll)
+        {
+            foreach (SpriteAnimation animation in animationArray)
+            {
+                animation.runAnimation(2);
+            }
+        }
 
         // Update attack
         if (attack && Time.time > attackTimer) {
             // get each sprite animation component and then change it to the attack animation
-            animationArray = GetComponentsInChildren<SpriteAnimation>();
             foreach (SpriteAnimation animation in animationArray)
             {
                 animation.runAnimation(1);
@@ -195,8 +205,7 @@ public class Player : MonoBehaviour
         
         // reset the animation back to the idle animation after the attack animation is done
         if (attackTimer < Time.time && !isIdle) {
-            // get each sprite animation component and then change it to the attack animation
-            animationArray = GetComponentsInChildren<SpriteAnimation>();
+            // get each sprite animation component and then change it to the idle animation
             foreach (SpriteAnimation animation in animationArray)
             {
                 animation.runAnimation(0);
@@ -258,6 +267,8 @@ public class Player : MonoBehaviour
         {
             PlayFootstepSound();
         }
+        
+
 
         // Set values for next frame
         wasGrounded = characterController.isGrounded;

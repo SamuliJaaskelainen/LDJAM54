@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 421be06ce57939a4d88523fbb742eb8e, type: 3}
+  m_Name: Tentacle05_Jump
+  m_EditorClassIdentifier: 
+  animationName: Tentacle04_Idle
+  sprites:
+  - {fileID: 2800000, guid: 59c538a3e82b6dd4d97fa20fa81e7dcb, type: 3}
+  - {fileID: 2800000, guid: 0bd21b5ed251b954ab2a74ba79ab2806, type: 3}
+  - {fileID: 2800000, guid: b3ba4c195bb47364abbfa9712848e57b, type: 3}
+  - {fileID: 2800000, guid: 5ec3bffdeabfab04da26cb841659ad5f, type: 3}
+  - {fileID: 2800000, guid: a291507257feab64093ec8924838e2ee, type: 3}
+  - {fileID: 2800000, guid: e1ab5d63fc04057459b915facb8f475e, type: 3}
+  changeInterval: 0.05
+  stopAtEnd: 1

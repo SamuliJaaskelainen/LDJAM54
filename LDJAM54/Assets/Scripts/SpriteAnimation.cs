@@ -42,6 +42,7 @@ public class SpriteAnimation : MonoBehaviour
 
         //Debug.Log("Changed to " + currentAnimation.AnimationName + " " + spriteIndex);
     }
+    
 
     void Update()
     {
