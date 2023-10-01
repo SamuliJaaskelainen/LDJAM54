@@ -7,9 +7,11 @@ using TMPro;
 public class Menu : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI scoreUI;
+    [SerializeField] GameObject storyUI;
 
     private void Start()
     {
+        CloseStory();
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         scoreUI.text = Player.killCount + " humans executed!";
@@ -28,5 +30,15 @@ public class Menu : MonoBehaviour
         {
             Application.Quit();
         }
+    }
+
+    public void OpenStory()
+    {
+        storyUI.SetActive(true);
+    }
+
+    public void CloseStory()
+    {
+        storyUI.SetActive(false);
     }
 }
