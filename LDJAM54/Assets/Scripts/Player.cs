@@ -247,6 +247,7 @@ public class Player : MonoBehaviour
         // takes square root of the sum of the squares of the x and z velocity
         // then divides by the max speed to get a value between 0 and 1
         // so we know how often to play the footstep sound
+
         return 1.0f / Mathf.Sqrt((velocity.x * velocity.x) + (velocity.z * velocity.z));
     }
 
@@ -257,5 +258,11 @@ public class Player : MonoBehaviour
         {
             health = 0.0f;
         }
+
+    }
+    
+    private void PlayTentacleHitSound()    
+    {
+
     }
 }
