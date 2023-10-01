@@ -22,6 +22,7 @@ public class Player : MonoBehaviour
     public float airDrag;
     public float attackRate;
     public float attackDistance;
+    public float attackRadius;
     public float bounceForceUp;
     public float bounceForceForward;
     public static float health = PLAYER_START_HEALTH;
@@ -127,9 +128,14 @@ public class Player : MonoBehaviour
         if (attack && Time.time > attackTimer)
         {
             Debug.Log("Attack!");
+            Debug.DrawRay(transform.position, transform.forward * attackDistance, Color.yellow, duration:1);
             attackTimer = Time.time + attackRate;
-            if (Physics.Raycast(transform.position, transform.forward, out hit, attackDistance, collisionLayers))
+            
+            // cast a sphere starting slightly behind you so you can hit enemies that are close
+            if (Physics.SphereCast(transform.position - (transform.forward * attackRadius), attackRadius, 
+                    transform.forward, out hit, maxDistance:attackDistance, collisionLayers))
             {
+                
                 if(hit.transform.tag == "Enemy")
                 {
                     hit.transform.SendMessage("Die");
