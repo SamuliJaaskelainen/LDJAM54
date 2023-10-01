@@ -6,12 +6,14 @@ using TMPro;
 
 public class Player : MonoBehaviour
 {
-    public const int PLAYER_START_HEALTH = 9999;
+    public const int PLAYER_START_HEALTH = 10;
     [SerializeField] CharacterController characterController;
     [SerializeField] LayerMask collisionLayers;
     [SerializeField] Transform head;
     [SerializeField] TextMeshProUGUI healthUi;
     [SerializeField] AnimationCurve barrelRollCurve;
+    [SerializeField] Transform heartUI;
+    [SerializeField] AnimationCurve heartCurve;
     public float mouseSensitivity = 1.0f;
     public float forwardSpeed;
     public float strafeSpeed;
@@ -35,6 +37,7 @@ public class Player : MonoBehaviour
     float headRotationUp = 0.0f;
     float barrelRoll = 0.0f;
     bool doingBarrelRoll = false;
+    float heartAnimValue = 0.0f;
 
     void Update()
     {
@@ -190,6 +193,14 @@ public class Player : MonoBehaviour
         {
             LevelManager.Instance.Lose();
         }
+
+        // Animate HP
+        heartAnimValue += Time.deltaTime * (health < 10 ? 6.0f : 4.0f);
+        if(heartAnimValue > 1.0f)
+        {
+            heartAnimValue = 0.0f;
+        }
+        heartUI.localScale = Vector3.one * heartCurve.Evaluate(heartAnimValue);
     }
 
     private void OnTriggerEnter(Collider other)
