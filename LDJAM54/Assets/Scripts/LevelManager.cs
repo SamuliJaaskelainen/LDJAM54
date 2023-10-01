@@ -19,7 +19,12 @@ public class LevelManager : MonoBehaviour
 
         currentRoom = SpawnRoom(Vector3.zero, Vector3.zero);
         currentRoom.startDoorway.SetActive(true);
-        nextRoom = SpawnRoom(currentRoom.endDoorway.transform.position, currentRoom.endDoorway.transform.localEulerAngles + new Vector3(90.0f, 0.0f, 0.0f));
+        nextRoom = SpawnRoom(currentRoom.endDoorway.transform.position, RoomDoorRotation(currentRoom));
+    }
+
+    Vector3 RoomDoorRotation(Room room)
+    {
+        return new Vector3(room.endDoorway.transform.eulerAngles.x + 90.0f, room.endDoorway.transform.eulerAngles.y, room.endDoorway.transform.eulerAngles.z);
     }
 
     public void SpawnNextRoom()
@@ -43,7 +48,7 @@ public class LevelManager : MonoBehaviour
             currentRoom.startDoorway.SetActive(true);
         }
 
-        nextRoom = SpawnRoom(currentRoom.endDoorway.transform.position, currentRoom.endDoorway.transform.localEulerAngles + new Vector3(90.0f, 0.0f, 0.0f));
+        nextRoom = SpawnRoom(currentRoom.endDoorway.transform.position, RoomDoorRotation(currentRoom));
     }
 
     Room SpawnRoom(Vector3 position, Vector3 euler)

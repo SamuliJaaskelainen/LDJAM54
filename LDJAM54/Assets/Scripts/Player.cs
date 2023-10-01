@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
 {
     public static Player Instance;
 
-    public const int PLAYER_START_HEALTH = 10;
+    public const int PLAYER_START_HEALTH = 20;
     [SerializeField] CharacterController characterController;
     [SerializeField] LayerMask collisionLayers;
     [SerializeField] Transform head;
@@ -164,7 +164,7 @@ public class Player : MonoBehaviour
                 if(hit.transform.tag == "Enemy")
                 {
                     hit.transform.SendMessage("Die");
-                    health += 5;
+                    health += 3;
                     PlayTentacleHitSound();
                 }
             }

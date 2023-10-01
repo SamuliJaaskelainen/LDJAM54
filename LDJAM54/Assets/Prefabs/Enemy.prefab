@@ -196,6 +196,7 @@ MonoBehaviour:
   fireRate: 0.15
   attackAmountBeforeCooldown: 20
   attackCooldown: 4
+  attackRange: 12
   isDead: 0
 --- !u!195 &2222640047311651313
 NavMeshAgent:

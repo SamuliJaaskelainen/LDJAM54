@@ -16,6 +16,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] float fireRate;
     [SerializeField] int attackAmountBeforeCooldown;
     [SerializeField] float attackCooldown;
+    [SerializeField] float attackRange;
 
     public bool isDead = false;
 
@@ -28,10 +29,13 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-        if(Time.time > navTimer)
+        if (Time.time > navTimer)
         {
             navTimer = Time.time + navRate;
-            agent.SetDestination(new Vector3(transform.position.x + Random.insideUnitCircle.x * navDistance, transform.position.y, transform.position.z + Random.insideUnitCircle.y * navDistance));
+            if (agent.isOnNavMesh)
+            {
+                agent.SetDestination(new Vector3(transform.position.x + Random.insideUnitCircle.x * navDistance, transform.position.y, transform.position.z + Random.insideUnitCircle.y * navDistance));
+            }
         }
 
         
@@ -43,7 +47,7 @@ public class Enemy : MonoBehaviour
             if (Time.time > attackTimer)
             {
                 Vector3 bulletSpawnPoint = transform.position + Vector3.up * projectileYOffset;
-                if (Vector3.Distance(bulletSpawnPoint, Player.Instance.transform.position) < 20.0f)
+                if (Vector3.Distance(bulletSpawnPoint, Player.Instance.transform.position) < attackRange)
                 {
                     if (Physics.Linecast(bulletSpawnPoint, Player.Instance.transform.position, out hit, fireLayers))
                     {
@@ -66,20 +70,23 @@ public class Enemy : MonoBehaviour
             }
         }
 
-        if(justAttacked)
+        if (agent.isOnNavMesh)
         {
-            if (!agent.isStopped)
+            if (justAttacked)
             {
-                agent.isStopped = true;
-                GetComponentInChildren<SpriteAnimation>().runAnimation(2);
+                if (!agent.isStopped)
+                {
+                    agent.isStopped = true;
+                    GetComponentInChildren<SpriteAnimation>().runAnimation(2);
+                }
             }
-        }
-        else
-        {
-            if (agent.isStopped)
+            else
             {
-                agent.isStopped = false;
-                GetComponentInChildren<SpriteAnimation>().runAnimation(0);
+                if (agent.isStopped)
+                {
+                    agent.isStopped = false;
+                    GetComponentInChildren<SpriteAnimation>().runAnimation(0);
+                }
             }
         }
     }
@@ -93,7 +100,7 @@ public class Enemy : MonoBehaviour
             isDead = true;
             enabled = false;
             Destroy(GetComponentInChildren<Collider>());
-            agent.isStopped = true;
+            Destroy(agent);
             Player.killCount++;
             blood.Play();
 
