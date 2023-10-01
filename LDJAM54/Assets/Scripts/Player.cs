@@ -273,6 +273,11 @@ public class Player : MonoBehaviour
 
     public void Hurt(int damage)
     {
+        if(doingBarrelRoll)
+        {
+            return;
+        }
+
         health -= damage;
         if(health < 0.0f)
         {
