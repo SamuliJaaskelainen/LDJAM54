@@ -725,14 +725,14 @@ MonoBehaviour:
   strafeSpeed: 33
   jumpPower: 2
   jumpPowerAdd: 77
-  barrelRollSpeed: 1.9
+  barrelRollSpeed: 2.2
   gravity: -25
   groundDrag: 0.94
   airDrag: 0.96
   attackRate: 0.33
   attackDistance: 1
   attackRadius: 1
-  bounceForceUp: 4
+  bounceForceUp: 7
   bounceForceForward: 50
 --- !u!1 &4176104648207272350
 GameObject:
