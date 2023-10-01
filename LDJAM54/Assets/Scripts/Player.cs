@@ -204,7 +204,7 @@ public class Player : MonoBehaviour
         heartUI.localScale = Vector3.one * heartCurve.Evaluate(heartAnimValue);
         
         // If player is moving and on the ground, play footstep sound
-        if (characterController.isGrounded && (forwardMovement != 0.0f || rightMovement != 0.0f))
+        if (characterController.isGrounded && (velocity.x  != 0.0f || velocity.z != 0.0f))
         {
             PlayFootstepSound();
         }
