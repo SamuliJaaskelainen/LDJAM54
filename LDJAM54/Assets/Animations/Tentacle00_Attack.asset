@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 421be06ce57939a4d88523fbb742eb8e, type: 3}
+  m_Name: Tentacle00_Attack
+  m_EditorClassIdentifier: 
+  animationName: Tentacle00_Attack
+  sprites:
+  - {fileID: 2800000, guid: a55c64abc24383242a44e05ddf161ca8, type: 3}
+  - {fileID: 2800000, guid: eda5774dd7ebe1f46bff3ee24bc15a88, type: 3}
+  - {fileID: 2800000, guid: 03a75e8a1469a6a4281e41e255cbb4eb, type: 3}
+  - {fileID: 2800000, guid: 03a75e8a1469a6a4281e41e255cbb4eb, type: 3}
+  - {fileID: 2800000, guid: 03a75e8a1469a6a4281e41e255cbb4eb, type: 3}
+  - {fileID: 2800000, guid: 834bb6eb5ced6924f9c5bac605ee4f63, type: 3}
+  - {fileID: 2800000, guid: 834bb6eb5ced6924f9c5bac605ee4f63, type: 3}
+  changeInterval: 0.02
+  stopAtEnd: 0
