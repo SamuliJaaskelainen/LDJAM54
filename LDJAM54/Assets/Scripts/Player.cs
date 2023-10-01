@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
 {
     public static Player Instance;
 
-    public const int PLAYER_START_HEALTH = 2000;
+    public const int PLAYER_START_HEALTH = 20;
     [SerializeField] CharacterController characterController;
     [SerializeField] LayerMask collisionLayers;
     [SerializeField] Transform head;
@@ -301,7 +301,9 @@ public class Player : MonoBehaviour
     {
         if(other.tag == "RoomEnd")
         {
+            Debug.Log("Hit room end! " + other.gameObject.GetInstanceID());
             LevelManager.Instance.SpawnNextRoom();
+            other.gameObject.SetActive(false);
             Destroy(other.gameObject);
         }
     }
