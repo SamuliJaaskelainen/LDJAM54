@@ -585,7 +585,7 @@ GameObject:
   - component: {fileID: 477189872113306024}
   m_Layer: 6
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -647,7 +647,7 @@ MonoBehaviour:
   characterController: {fileID: 3892197214524831626}
   collisionLayers:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 257
   head: {fileID: 5309326721954767634}
   healthUi: {fileID: 1367667156511208744}
   barrelRollCurve:
@@ -717,6 +717,9 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  attackLayers:
+    serializedVersion: 2
+    m_Bits: 0
   mouseSensitivity: 0.2
   forwardSpeed: 33
   strafeSpeed: 33

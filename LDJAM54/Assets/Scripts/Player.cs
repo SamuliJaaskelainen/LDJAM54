@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
+    public static Player Instance;
+
     public const int PLAYER_START_HEALTH = 10;
     [SerializeField] CharacterController characterController;
     [SerializeField] LayerMask collisionLayers;
@@ -15,6 +17,7 @@ public class Player : MonoBehaviour
     [SerializeField] AnimationCurve barrelRollCurve;
     [SerializeField] Transform heartUI;
     [SerializeField] AnimationCurve heartCurve;
+    [SerializeField] LayerMask attackLayers;
     public float mouseSensitivity = 1.0f;
     public float forwardSpeed;
     public float strafeSpeed;
@@ -40,6 +43,11 @@ public class Player : MonoBehaviour
     bool doingBarrelRoll = false;
     float heartAnimValue = 0.0f;
     float footstepSoundTime = 0.0f;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     void Update()
     {
@@ -226,18 +234,28 @@ public class Player : MonoBehaviour
         {
             return;
         }
-        else {
+        else
+        {
             AudioManager.Instance.PlaySound(Random.Range(0,10), transform.position, 0.5f);
             footstepSoundTime = Time.time;
         }
 
     }
 
-    private float CalculateFootstepFrequency() {
+    private float CalculateFootstepFrequency()
+    {
         // takes square root of the sum of the squares of the x and z velocity
         // then divides by the max speed to get a value between 0 and 1
         // so we know how often to play the footstep sound
-        return 1/Mathf.Sqrt((velocity.x * velocity.x) + (velocity.z * velocity.z));
-        
+        return 1.0f / Mathf.Sqrt((velocity.x * velocity.x) + (velocity.z * velocity.z));
+    }
+
+    public void Hurt(int damage)
+    {
+        health -= damage;
+        if(health < 0.0f)
+        {
+            health = 0.0f;
+        }
     }
 }

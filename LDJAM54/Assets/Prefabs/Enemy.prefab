@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8332570189628455891}
   - component: {fileID: 1661199484855827487}
   - component: {fileID: 1907364290200137548}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Billboard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -114,7 +114,7 @@ GameObject:
   - component: {fileID: 4361872577158326356}
   - component: {fileID: 3812249712748799491}
   - component: {fileID: 2222640047311651313}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -187,6 +187,15 @@ MonoBehaviour:
   navRate: 1
   navDistance: 5
   blood: {fileID: 9164941725788409794}
+  fireLayers:
+    serializedVersion: 2
+    m_Bits: 321
+  projectile: {fileID: 6373128485846439385, guid: e43dec730bfe41e4ea69ef62f4ba7d6b,
+    type: 3}
+  projectileYOffset: 0.5
+  fireRate: 0.15
+  attackAmountBeforeCooldown: 20
+  attackCooldown: 4
   isDead: 0
 --- !u!195 &2222640047311651313
 NavMeshAgent:
@@ -272,6 +281,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Blood
+      objectReference: {fileID: 0}
+    - target: {fileID: 8346083758940234350, guid: 8496153ff6daaa143938862a4da92aea,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
