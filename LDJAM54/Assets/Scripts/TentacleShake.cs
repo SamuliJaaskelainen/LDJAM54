@@ -16,6 +16,7 @@ public class TentacleShake : MonoBehaviour {
     private bool moveCase = false;
 
     private Vector3 _startPosition;
+    private Quaternion _startRotation;
     private CharacterController _controller;
     private float tentacleMoveTime = 0.0f;
 
@@ -32,11 +33,11 @@ public class TentacleShake : MonoBehaviour {
     private Vector3 TentacleStepMotion(float playerSpeed) {
         Vector3 pos = UnityEngine.Vector3.zero; 
         float moveFreq = CalculateTentacleMoveFrequency();
-        //pos.y += Mathf.Sin(Time.time * _frequency) * (_amplitude + (Random.Range(-0.002f, 0.002f) * moveFreq));
-        //pos.x += (Mathf.Cos(Time.time * (_frequency) / 2) * (_amplitude + (Random.Range(-0.05f, 0.05f) * moveFreq))/2);
+        pos.y += Mathf.Sin(Time.time * _frequency) * (_amplitude + (Random.Range(-0.002f, 0.002f) * moveFreq));
+        pos.x += (Mathf.Cos(Time.time * (_frequency) / 2) * (_amplitude + (Random.Range(-0.05f, 0.05f) * moveFreq))/2);
         
-        pos.y = _startPosition.y + (Random.Range(-0.002f, 0.002f) * moveFreq);
-        pos.x = _startPosition.x + (Random.Range(-0.001f, 0.001f) * moveFreq);
+        //pos.y = _startPosition.y + (Random.Range(-0.002f, 0.002f) * moveFreq);
+        //pos.x = _startPosition.x + (Random.Range(-0.001f, 0.001f) * moveFreq);
         return pos;
     }
 
@@ -52,22 +53,25 @@ public class TentacleShake : MonoBehaviour {
         
         if (moveCase) {
             PlayMotion(TentacleStepMotion(speed));
+            RotateTentacle();
             moveCase = false;
         }
         else {
             _tentacle.localPosition = _startPosition;
+            ResetRotation();
             moveCase = true;
+            
         }
     }
     
     private void PlayMotion(Vector3 motion){
-        _tentacle.localPosition = Vector3.Lerp(_tentacle.localPosition, _startPosition + motion, t:Time.deltaTime * 30);
+        _tentacle.localPosition = Vector3.Lerp(_tentacle.localPosition, _startPosition + motion, t:Time.deltaTime * 15);
         tentacleMoveTime = Time.time;
     }
 
     private void ResetPosition() {
         if (_tentacle.localPosition == _startPosition) return;
-        _tentacle.localPosition = Vector3.Lerp((_tentacle.localPosition), _startPosition, Time.deltaTime * 30);
+        _tentacle.localPosition = Vector3.Lerp((_tentacle.localPosition), _startPosition, Time.deltaTime * 1);
     }
     
     
@@ -79,6 +83,14 @@ public class TentacleShake : MonoBehaviour {
         return Mathf.Sqrt((_controller.velocity.x * _controller.velocity.x) + (_controller.velocity.z * _controller.velocity.z));
     }
     
+    private void RotateTentacle() {
+        float randomRotation = Random.Range(-10, 10);
+        _tentacle.localRotation = Quaternion.Euler(0, 0, randomRotation);
+    }
+    
+    private void ResetRotation() {
+        _tentacle.localRotation = Quaternion.Lerp(_tentacle.localRotation, _startRotation, Time.deltaTime * 1);
+    }
     private float CalculateFootstepMoveFrequency()
     {
         // takes square root of the sum of the squares of the x and z velocity
