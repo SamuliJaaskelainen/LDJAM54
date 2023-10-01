@@ -28,8 +28,8 @@ Transform:
   m_GameObject: {fileID: 810021588594602948}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.7071068, z: 0.7071068, w: 0}
-  m_LocalPosition: {x: 0, y: 0.542, z: 0}
-  m_LocalScale: {x: 0.10690171, y: 0.10690171, z: 0.10690171}
+  m_LocalPosition: {x: 0, y: 0.704, z: 0}
+  m_LocalScale: {x: 0.13898225, y: 0.13898225, z: 0.13898225}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2461175617745145578}
@@ -169,8 +169,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.81478465, y: 1.3026506, z: 0.1}
-  m_Center: {x: 0.02210635, y: 0.6513253, z: 0}
+  m_Size: {x: 0.81478465, y: 1.413253, z: 0.1}
+  m_Center: {x: 0.02210635, y: 0.7066265, z: 0}
 --- !u!114 &3812249712748799491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,9 +193,9 @@ MonoBehaviour:
   projectile: {fileID: 6373128485846439385, guid: e1760bbc6e1e9bb46beeac9b2b7b2a2d,
     type: 3}
   projectileYOffset: 0.5
-  fireRate: 0.1
-  attackAmountBeforeCooldown: 30
-  attackCooldown: 4
+  fireRate: 0.05
+  attackAmountBeforeCooldown: 7
+  attackCooldown: 2
   attackRange: 20
   isDead: 0
 --- !u!195 &2222640047311651313
