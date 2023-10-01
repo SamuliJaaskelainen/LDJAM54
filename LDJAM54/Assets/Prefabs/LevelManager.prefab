@@ -50,5 +50,4 @@ MonoBehaviour:
   roomPrefabs:
   - {fileID: 3739916339783739562, guid: ac2a46941e9ac3e44924072b6e56602d, type: 3}
   - {fileID: 3739916339783739562, guid: affe54fd43b41214b9896d4fb5fceacb, type: 3}
-  - {fileID: 3739916339783739562, guid: a65517f0b14af32479a60eebc6382cb0, type: 3}
   - {fileID: 3739916339783739562, guid: 92557fba5dd68544c87d02218a18c5bd, type: 3}

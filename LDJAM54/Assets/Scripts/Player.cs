@@ -22,7 +22,7 @@ public class Player : MonoBehaviour
     [SerializeField] LayerMask attackLayers;
     [SerializeField] GameObject help;
     [SerializeField] GameObject helpHelp;
-    public float mouseSensitivity = 1.0f;
+    static float mouseSensitivity = 0.15f;
     public float forwardSpeed;
     public float strafeSpeed;
     public float jumpPower;
@@ -53,6 +53,9 @@ public class Player : MonoBehaviour
     bool wasGrounded;
     float jumpPressedTimer;
     bool jumpReleased = true;
+    bool isDead = false;
+    float deadTimer = 0.0f;
+    float deadHeadValue = 0.0f;
 
     private void Awake()
     {
@@ -93,6 +96,30 @@ public class Player : MonoBehaviour
         if (Cursor.visible)
         {
             Cursor.visible = false;
+        }
+
+        // Handle afterlife
+        if(isDead)
+        {
+            deadHeadValue += Time.deltaTime * 150.0f;
+            if(deadHeadValue > 95.0f)
+            {
+                foreach (SpriteAnimation animation in animationArray)
+                {
+                    animation.enabled = false;
+                }
+                deadHeadValue = 95.0f;
+                GetComponentInChildren<TentacleShake>().enabled = false;
+            }
+            head.transform.localEulerAngles = new Vector3(0.0f, 0.0f, deadHeadValue);
+
+            deadTimer += Time.deltaTime;
+            if (Input.GetKeyDown(KeyCode.Mouse0) && deadTimer > 1.0f)
+            {
+                LevelManager.Instance.Lose();
+            }
+
+            return;
         }
 
         // Get player action data
@@ -274,7 +301,7 @@ public class Player : MonoBehaviour
         healthUi.text = Mathf.CeilToInt(health).ToString();
         if(health <= 0)
         {
-            LevelManager.Instance.Lose();
+            isDead = true;
         }
 
         // Animate HP

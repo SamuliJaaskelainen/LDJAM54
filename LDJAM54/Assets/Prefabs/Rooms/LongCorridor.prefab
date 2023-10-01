@@ -390,7 +390,7 @@ GameObject:
   - component: {fileID: 6464929194329574608}
   - component: {fileID: 5023083967991453393}
   - component: {fileID: 2461709542459264169}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: RoomEnd
   m_TagString: RoomEnd
   m_Icon: {fileID: 0}
