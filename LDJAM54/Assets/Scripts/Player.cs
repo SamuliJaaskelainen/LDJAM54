@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -65,9 +66,9 @@ public class Player : MonoBehaviour
         bool headCollision = Physics.Raycast(transform.position, Vector3.up, characterController.height, collisionLayers);
         Vector2 mouseDelta = new Vector2(Mouse.current.delta.x.value, Mouse.current.delta.y.value) * mouseSensitivity;
 
-        if (Input.GetKey(KeyCode.W))
-        {
+        if (Input.GetKey(KeyCode.W)) {
             forwardMovement = 1.0f;
+            AudioManager.Instance.PlaySound("tentacle_walk00.wav", transform.position, 0.5f);
         }
         else if (Input.GetKey(KeyCode.S))
         {
