@@ -32,7 +32,7 @@ public class Enemy : MonoBehaviour
         {
             isDead = true;
             enabled = false;
-            GetComponent<BoxCollider>().enabled = false;
+            Destroy(GetComponentInChildren<Collider>());
             agent.isStopped = true;
             Player.killCount++;
             blood.Play();
