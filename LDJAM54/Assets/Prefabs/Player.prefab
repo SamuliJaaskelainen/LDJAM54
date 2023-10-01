@@ -99,6 +99,7 @@ MonoBehaviour:
   defaultAnimation: {fileID: 11400000, guid: 1bfefda0294e9504b88e33bd487a26b6, type: 2}
   animations:
   - {fileID: 11400000, guid: 1bfefda0294e9504b88e33bd487a26b6, type: 2}
+  - {fileID: 11400000, guid: c6e34c5022e130c44a31f948bff6e447, type: 2}
 --- !u!1 &1450510174020137089
 GameObject:
   m_ObjectHideFlags: 0
@@ -198,6 +199,7 @@ MonoBehaviour:
   defaultAnimation: {fileID: 11400000, guid: b124bbe8b526d9d4984122b793a26661, type: 2}
   animations:
   - {fileID: 11400000, guid: b124bbe8b526d9d4984122b793a26661, type: 2}
+  - {fileID: 11400000, guid: c781ef86266bd0443b37e2040cb5ab5b, type: 2}
 --- !u!1 &2052932587166238813
 GameObject:
   m_ObjectHideFlags: 0
@@ -297,6 +299,7 @@ MonoBehaviour:
   defaultAnimation: {fileID: 11400000, guid: bfd4b43f834bd5e4692d41f7a7ccde1b, type: 2}
   animations:
   - {fileID: 11400000, guid: bfd4b43f834bd5e4692d41f7a7ccde1b, type: 2}
+  - {fileID: 11400000, guid: f92a4949ca87c394aad1096217507f01, type: 2}
 --- !u!1 &2366067606224498844
 GameObject:
   m_ObjectHideFlags: 0
@@ -533,6 +536,7 @@ MonoBehaviour:
   defaultAnimation: {fileID: 11400000, guid: acd1a94d3a959dc46a45a7d4103f82d6, type: 2}
   animations:
   - {fileID: 11400000, guid: acd1a94d3a959dc46a45a7d4103f82d6, type: 2}
+  - {fileID: 11400000, guid: 4b564337aa793ca4b8650178fd0d4a2d, type: 2}
 --- !u!1 &3202963442459606806
 GameObject:
   m_ObjectHideFlags: 0
@@ -558,8 +562,8 @@ Transform:
   m_GameObject: {fileID: 3202963442459606806}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.008, y: 0.03, z: 0}
+  m_LocalScale: {x: 1.55, y: 1.55, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1759207595896060980}
@@ -923,6 +927,7 @@ MonoBehaviour:
   defaultAnimation: {fileID: 11400000, guid: 88ae389a931e21147a2a8fe2f184f299, type: 2}
   animations:
   - {fileID: 11400000, guid: 88ae389a931e21147a2a8fe2f184f299, type: 2}
+  - {fileID: 11400000, guid: 6d8c9c74404a91f4a95806aedd20bad9, type: 2}
 --- !u!1 &6816411704372975778
 GameObject:
   m_ObjectHideFlags: 0
@@ -1106,3 +1111,4 @@ MonoBehaviour:
   defaultAnimation: {fileID: 11400000, guid: 64ffa360098fbb643916c335af329a87, type: 2}
   animations:
   - {fileID: 11400000, guid: 64ffa360098fbb643916c335af329a87, type: 2}
+  - {fileID: 11400000, guid: 3fc8119d9c308c64ebc9f84726aa26ac, type: 2}

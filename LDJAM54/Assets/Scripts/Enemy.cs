@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Rendering.Universal;
 
 public class Enemy : MonoBehaviour
 {
     [SerializeField] NavMeshAgent agent;
     [SerializeField] float navRate;
     [SerializeField] float navDistance;
+    [SerializeField] ParticleSystem blood;
 
     public bool isDead = false;
 
@@ -18,7 +20,7 @@ public class Enemy : MonoBehaviour
         if(Time.time > navTimer)
         {
             navTimer = Time.time + navRate;
-            agent.SetDestination(new Vector3(Random.insideUnitCircle.x * navDistance, transform.position.y, Random.insideUnitCircle.y * navDistance));
+            agent.SetDestination(new Vector3(transform.position.x + Random.insideUnitCircle.x * navDistance, transform.position.y, transform.position.z + Random.insideUnitCircle.y * navDistance));
         }
     }
 
@@ -33,6 +35,7 @@ public class Enemy : MonoBehaviour
             GetComponent<BoxCollider>().enabled = false;
             agent.isStopped = true;
             Player.killCount++;
+            blood.Play();
 
             GetComponentInChildren<SpriteAnimation>().runAnimation(1);
         }

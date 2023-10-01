@@ -24,5 +24,5 @@ MonoBehaviour:
   - {fileID: 2800000, guid: b99dbb9d470d11c408292aa3850587ad, type: 3}
   - {fileID: 2800000, guid: 0cc66cd14b7cb354d81000d639af7b89, type: 3}
   - {fileID: 2800000, guid: 70b710c3eab5903498f6c43e9a33a457, type: 3}
-  changeInterval: 0.2
+  changeInterval: 0.05
   stopAtEnd: 1
