@@ -29,6 +29,8 @@ public class Player : MonoBehaviour
     public static int killCount;
     Vector3 velocity = Vector3.zero;
     float attackTimer;
+    private bool isIdle = true;
+    private SpriteAnimation[] animationArray;
     RaycastHit hit;
     float headRotationUp = 0.0f;
     float barrelRoll = 0.0f;
@@ -126,8 +128,14 @@ public class Player : MonoBehaviour
         characterController.Move(transform.TransformDirection(velocity * Time.deltaTime));
 
         // Update attack
-        if (attack && Time.time > attackTimer)
-        {
+        if (attack && Time.time > attackTimer) {
+            // get each sprite animation component and then change it to the attack animation
+            animationArray = GetComponentsInChildren<SpriteAnimation>();
+            foreach (SpriteAnimation animation in animationArray)
+            {
+                animation.runAnimation(1);
+            }
+            isIdle = false;
             Debug.Log("Attack!");
             Debug.DrawRay(transform.position, transform.forward * attackDistance, Color.yellow, duration:1);
             attackTimer = Time.time + attackRate;
@@ -143,6 +151,17 @@ public class Player : MonoBehaviour
                     health += 5;
                 }
             }
+        }
+        
+        // reset the animation back to the idle animation after the attack animation is done
+        if (attackTimer < Time.time && !isIdle) {
+            // get each sprite animation component and then change it to the attack animation
+            animationArray = GetComponentsInChildren<SpriteAnimation>();
+            foreach (SpriteAnimation animation in animationArray)
+            {
+                animation.runAnimation(0);
+            }
+            isIdle = true;
         }
 
         // Rotate character
