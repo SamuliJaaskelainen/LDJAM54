@@ -39,6 +39,7 @@ public class Player : MonoBehaviour
     float barrelRoll = 0.0f;
     bool doingBarrelRoll = false;
     float heartAnimValue = 0.0f;
+    float footstepSoundTime = 0.0f;
 
     void Update()
     {
@@ -68,7 +69,6 @@ public class Player : MonoBehaviour
 
         if (Input.GetKey(KeyCode.W)) {
             forwardMovement = 1.0f;
-            AudioManager.Instance.PlaySound("tentacle_walk00.wav", transform.position, 0.5f);
         }
         else if (Input.GetKey(KeyCode.S))
         {
@@ -202,6 +202,13 @@ public class Player : MonoBehaviour
             heartAnimValue = 0.0f;
         }
         heartUI.localScale = Vector3.one * heartCurve.Evaluate(heartAnimValue);
+        
+        // If player is moving and on the ground, play footstep sound
+        if (characterController.isGrounded && (forwardMovement != 0.0f || rightMovement != 0.0f))
+        {
+            PlayFootstepSound();
+        }
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -211,5 +218,26 @@ public class Player : MonoBehaviour
             LevelManager.Instance.SpawnNextRoom();
             Destroy(other.gameObject);
         }
+    }
+    
+    private void PlayFootstepSound()    
+    {
+        if (Time.time - footstepSoundTime < CalculateFootstepFrequency())
+        {
+            return;
+        }
+        else {
+            AudioManager.Instance.PlaySound(Random.Range(0,10), transform.position, 0.5f);
+            footstepSoundTime = Time.time;
+        }
+
+    }
+
+    private float CalculateFootstepFrequency() {
+        // takes square root of the sum of the squares of the x and z velocity
+        // then divides by the max speed to get a value between 0 and 1
+        // so we know how often to play the footstep sound
+        return 1/Mathf.Sqrt((velocity.x * velocity.x) + (velocity.z * velocity.z));
+        
     }
 }
