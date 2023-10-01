@@ -14,7 +14,7 @@ public class Menu : MonoBehaviour
         CloseStory();
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        scoreUI.text = Player.killCount + " humans executed!";
+        scoreUI.text = Player.killCount + " humans consumed!";
     }
 
     public void StartGame()

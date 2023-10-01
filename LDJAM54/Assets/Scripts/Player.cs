@@ -315,7 +315,7 @@ public class Player : MonoBehaviour
         }
         else
         {
-            AudioManager.Instance.PlaySound(Random.Range(0,10), transform.position, 0.5f);
+            AudioManager.Instance.PlaySound(Random.Range(0,10), transform.position, 0.3f);
             footstepSoundTime = Time.time;
         }
 
@@ -348,13 +348,13 @@ public class Player : MonoBehaviour
     
     private void PlayHurtSound()    
     {
-        AudioManager.Instance.PlaySound(Random.Range(14,18), transform.position, 0.5f);
+        AudioManager.Instance.PlaySound(Random.Range(14,18), transform.position, 0.7f);
 
     }
     
     private void PlayTentacleHitSound() 
     {
-        AudioManager.Instance.PlaySound(Random.Range(10,14), transform.position, 0.5f);
+        AudioManager.Instance.PlaySound(Random.Range(10,14), transform.position, 0.9f);
 
     }
 

@@ -26,6 +26,7 @@ public class Enemy : MonoBehaviour
     int attacks;
     float attackTimer;
     bool justAttacked = false;
+    private bool playingFlameSound = false;
 
     void Update()
     {
@@ -58,11 +59,20 @@ public class Enemy : MonoBehaviour
                             Projectile newProjectile = Instantiate(projectile, bulletSpawnPoint, Quaternion.identity).GetComponent<Projectile>();
                             newProjectile.direction = (Player.Instance.transform.position - bulletSpawnPoint).normalized;
                             attacks++;
+                            if (!playingFlameSound)
+                            {
+                                playingFlameSound = true;
+                                AudioManager.Instance.PlaySound(22, transform.position, 0.2f, 1f, false);
+                            }
 
                             if(attacks >= attackAmountBeforeCooldown)
                             {
                                 attacks = 0;
                                 attackTimer = Time.time + attackCooldown;
+                                if (playingFlameSound) {
+                                    playingFlameSound = false;
+                                    AudioManager.Instance.PlaySound(22, transform.position, 0.2f, 1f, false);
+                                }
                             }
                         }
                     }
@@ -103,8 +113,14 @@ public class Enemy : MonoBehaviour
             Destroy(agent);
             Player.killCount++;
             blood.Play();
+            PlayDeathSound();
 
             GetComponentInChildren<SpriteAnimation>().runAnimation(1);
         }
+    }
+    
+    private void PlayDeathSound()
+    {
+        AudioManager.Instance.PlaySound(Random.Range(23, 29), transform.position, 0.35f, 1f, false);
     }
 }

@@ -58,7 +58,7 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void PlaySound(int clipIndex, Vector3 position, float volume = 1.0f, float pitch = 1.0f)
+    public void PlaySound(int clipIndex, Vector3 position, float volume = 1.0f, float pitch = 1.0f, bool loop = false)
     {
         if (clipIndex >= soundEffects.Length)
         {
@@ -76,6 +76,7 @@ public class AudioManager : MonoBehaviour
             audioSource.clip = soundEffects[clipIndex];
             audioSource.volume = volume;
             audioSource.pitch = pitch;
+            audioSource.loop = loop;
             audioSource.Play();
             StartCoroutine("ReturnToPool", audioObject);
         }
