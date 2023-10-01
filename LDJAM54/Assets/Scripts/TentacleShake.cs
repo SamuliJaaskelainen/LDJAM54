@@ -5,7 +5,6 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class TentacleShake : MonoBehaviour {
-    [SerializeField] private bool _enable = true;
 
     [SerializeField, Range(0, 0.1f)] private float _amplitude = 0.015f;
     [SerializeField, Range(0, 30f)] private float _frequency = 10.0f;
