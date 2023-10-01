@@ -263,7 +263,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: LUDUM DARE 54
+  m_text: Calamari Odyssey
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0579842e53214094292915f7428e072d, type: 2}
   m_sharedMaterial: {fileID: -5902391926894981548, guid: 0579842e53214094292915f7428e072d,
@@ -297,7 +297,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 16
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
