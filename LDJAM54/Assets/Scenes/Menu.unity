@@ -1892,16 +1892,16 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'You hunger. You awaken. Too much light. Flickering.  Resonant hum. Cold
-    pressure on your mantle. A single tooth, held by meat. It shines. Pain. You grab
-    it, plunging it into the meat. A shriek. The meat collapses. You hunger. What
-    does the meat want? Layers of skin. Different textures and tastes. Tough. No
-    flavor. Dry, stringy. Soft and wet. Brittle. The best parts are scarce. The ground
-    is cold. The walls are cold. The ceiling is cold. You hunger. What is this place?
-    More meat. Another shriek. It cannot escape. You hunger. More layers. The best
-    parts are scarce. Does the meat hunger too? Are you trapped? The wall opens and
-    more meat appears. Heat. Pain. So much pain. Why does the meat do this? Another
-    shriek. The best parts are scarce. Cold. Silence. You hunger. '
+  m_text: 'You hunger. Too much light. Flickering.  Resonant hum. Cold pressure on
+    your mantle. A single tooth, held by meat. It shines. Pain. You grab it, plunging
+    it into the meat. A shriek. The meat collapses. You hunger. What does the meat
+    want? Layers of skin. Different textures and tastes. Tough. No flavor. Dry, stringy.
+    Soft and wet. Brittle. The best parts are scarce. The ground is cold. You hunger.
+    Does the meat hunger too? The walls are cold. More meat. No tooth. What is this
+    place? Another shriek. It cannot escape. You hunger. More layers. The best parts
+    are scarce. The ceiling is cold. Are you trapped? The wall opens and more meat
+    appears. No tooth. But heat. And pain. So much pain. Why does the meat do this?
+    Another shriek. The best parts are scarce. Cold. Silence. You hunger. '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0579842e53214094292915f7428e072d, type: 2}
   m_sharedMaterial: {fileID: -5902391926894981548, guid: 0579842e53214094292915f7428e072d, type: 2}
