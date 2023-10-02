@@ -22,6 +22,7 @@ public class Player : MonoBehaviour
     [SerializeField] LayerMask attackLayers;
     [SerializeField] GameObject help;
     [SerializeField] GameObject helpHelp;
+    [SerializeField] GameObject gameOver;
     static float mouseSensitivity = 0.15f;
     public float forwardSpeed;
     public float strafeSpeed;
@@ -62,6 +63,7 @@ public class Player : MonoBehaviour
         Instance = this;
         animationArray = GetComponentsInChildren<SpriteAnimation>();
         help.SetActive(false);
+        gameOver.SetActive(false);
     }
 
     void Update() {
@@ -301,6 +303,7 @@ public class Player : MonoBehaviour
         healthUi.text = Mathf.CeilToInt(health).ToString();
         if(health <= 0)
         {
+            gameOver.SetActive(true);
             isDead = true;
             PlayDeathSound();
         }
