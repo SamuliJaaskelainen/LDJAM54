@@ -35,42 +35,58 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-        if (LevelManager.Instance.gameTime > 350.0f)
+        if (LevelManager.Instance.gameTime > 300.0f)
+        {
+            modifiedAttackCooldown = attackCooldown * 0.01f;
+            modifiedAttackAmountBeforeCooldown = Mathf.CeilToInt((float)attackAmountBeforeCooldown * 2.1f);
+        }
+        else if (LevelManager.Instance.gameTime > 285.0f)
+        {
+            modifiedAttackCooldown = attackCooldown * 0.05f;
+            modifiedAttackAmountBeforeCooldown = Mathf.CeilToInt((float)attackAmountBeforeCooldown * 2.0f);
+        }
+        else if (LevelManager.Instance.gameTime > 270.0f)
+        {
+            modifiedAttackCooldown = attackCooldown * 0.1f;
+            modifiedAttackAmountBeforeCooldown = Mathf.CeilToInt((float)attackAmountBeforeCooldown * 1.9f);
+        }
+        
+        else if (LevelManager.Instance.gameTime > 255.0f)
         {
             modifiedAttackCooldown = attackCooldown * 0.2f;
             modifiedAttackAmountBeforeCooldown = Mathf.CeilToInt((float)attackAmountBeforeCooldown * 1.8f);
         }
-        else if (LevelManager.Instance.gameTime > 325.0f)
+        else if (LevelManager.Instance.gameTime > 240.0f)
         {
             modifiedAttackCooldown = attackCooldown * 0.3f;
             modifiedAttackAmountBeforeCooldown = Mathf.CeilToInt((float)attackAmountBeforeCooldown * 1.7f);
         }
-        else if (LevelManager.Instance.gameTime > 300.0f)
+        else if (LevelManager.Instance.gameTime > 225.0f)
         {
             modifiedAttackCooldown = attackCooldown * 0.4f;
             modifiedAttackAmountBeforeCooldown = Mathf.CeilToInt((float)attackAmountBeforeCooldown * 1.6f);
         }
-        else if (LevelManager.Instance.gameTime > 300.0f)
+        else if (LevelManager.Instance.gameTime > 210.0f)
         {
             modifiedAttackCooldown = attackCooldown * 0.5f;
             modifiedAttackAmountBeforeCooldown = Mathf.CeilToInt((float)attackAmountBeforeCooldown * 1.5f);
         }
-        else if (LevelManager.Instance.gameTime > 250.0f)
+        else if (LevelManager.Instance.gameTime > 180.0f)
         {
             modifiedAttackCooldown = attackCooldown * 0.6f;
             modifiedAttackAmountBeforeCooldown = Mathf.CeilToInt((float)attackAmountBeforeCooldown * 1.4f);
         }
-        else if (LevelManager.Instance.gameTime > 200.0f)
+        else if (LevelManager.Instance.gameTime > 150.0f)
         {
             modifiedAttackCooldown = attackCooldown * 0.7f;
             modifiedAttackAmountBeforeCooldown = Mathf.CeilToInt((float)attackAmountBeforeCooldown * 1.3f);
         }
-        else if (LevelManager.Instance.gameTime > 150.0f)
+        else if (LevelManager.Instance.gameTime > 120.0f)
         {
             modifiedAttackCooldown = attackCooldown * 0.8f;
             modifiedAttackAmountBeforeCooldown = Mathf.CeilToInt((float)attackAmountBeforeCooldown * 1.2f);
         }
-        else if (LevelManager.Instance.gameTime > 100.0f)
+        else if (LevelManager.Instance.gameTime > 90.0f)
         {
             modifiedAttackCooldown = attackCooldown * 0.9f;
             modifiedAttackAmountBeforeCooldown = Mathf.CeilToInt((float)attackAmountBeforeCooldown * 1.1f);

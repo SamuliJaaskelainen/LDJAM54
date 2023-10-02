@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
 {
     public static Player Instance;
 
-    public const int PLAYER_START_HEALTH = 20;
+    public const int PLAYER_START_HEALTH = 2000;
     [SerializeField] CharacterController characterController;
     [SerializeField] LayerMask collisionLayers;
     [SerializeField] Transform head;
