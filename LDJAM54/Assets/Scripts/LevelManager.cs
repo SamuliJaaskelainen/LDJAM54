@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -10,6 +9,8 @@ public class LevelManager : MonoBehaviour
     [SerializeField] List<GameObject> enemyPrefabs = new List<GameObject>();
     [SerializeField] List<GameObject> roomPrefabs = new List<GameObject>();
 
+    public float gameTime = 0.0f;
+
     Room currentRoom = null;
     Room nextRoom = null;
 
@@ -17,9 +18,15 @@ public class LevelManager : MonoBehaviour
     {
         Instance = this;
 
+        gameTime = 0.0f;
         currentRoom = SpawnRoom(Vector3.zero, Vector3.zero);
         currentRoom.startDoorway.SetActive(true);
         nextRoom = SpawnRoom(currentRoom.endDoorway.transform.position, RoomDoorRotation(currentRoom));
+    }
+
+    void Update()
+    {
+        gameTime += Time.deltaTime;
     }
 
     Vector3 RoomDoorRotation(Room room)

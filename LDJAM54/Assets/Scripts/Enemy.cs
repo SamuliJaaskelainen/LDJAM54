@@ -28,8 +28,57 @@ public class Enemy : MonoBehaviour
     float attackTimer;
     bool justAttacked = false;
 
+    float modifiedAttackCooldown;
+    float modifiedAttackAmountBeforeCooldown;
+
     void Update()
     {
+        if (LevelManager.Instance.gameTime > 500.0f)
+        {
+            modifiedAttackCooldown = attackCooldown * 0.2f;
+            modifiedAttackAmountBeforeCooldown = Mathf.CeilToInt((float)attackAmountBeforeCooldown * 1.8f);
+        }
+        else if (LevelManager.Instance.gameTime > 450.0f)
+        {
+            modifiedAttackCooldown = attackCooldown * 0.3f;
+            modifiedAttackAmountBeforeCooldown = Mathf.CeilToInt((float)attackAmountBeforeCooldown * 1.7f);
+        }
+        else if (LevelManager.Instance.gameTime > 400.0f)
+        {
+            modifiedAttackCooldown = attackCooldown * 0.4f;
+            modifiedAttackAmountBeforeCooldown = Mathf.CeilToInt((float)attackAmountBeforeCooldown * 1.6f);
+        }
+        else if (LevelManager.Instance.gameTime > 350.0f)
+        {
+            modifiedAttackCooldown = attackCooldown * 0.5f;
+            modifiedAttackAmountBeforeCooldown = Mathf.CeilToInt((float)attackAmountBeforeCooldown * 1.5f);
+        }
+        else if (LevelManager.Instance.gameTime > 300.0f)
+        {
+            modifiedAttackCooldown = attackCooldown * 0.6f;
+            modifiedAttackAmountBeforeCooldown = Mathf.CeilToInt((float)attackAmountBeforeCooldown * 1.4f);
+        }
+        else if (LevelManager.Instance.gameTime > 250.0f)
+        {
+            modifiedAttackCooldown = attackCooldown * 0.7f;
+            modifiedAttackAmountBeforeCooldown = Mathf.CeilToInt((float)attackAmountBeforeCooldown * 1.3f);
+        }
+        else if (LevelManager.Instance.gameTime > 200.0f)
+        {
+            modifiedAttackCooldown = attackCooldown * 0.8f;
+            modifiedAttackAmountBeforeCooldown = Mathf.CeilToInt((float)attackAmountBeforeCooldown * 1.2f);
+        }
+        else if (LevelManager.Instance.gameTime > 150.0f)
+        {
+            modifiedAttackCooldown = attackCooldown * 0.9f;
+            modifiedAttackAmountBeforeCooldown = Mathf.CeilToInt((float)attackAmountBeforeCooldown * 1.1f);
+        }
+        else
+        {
+            modifiedAttackCooldown = attackCooldown;
+            modifiedAttackAmountBeforeCooldown = attackAmountBeforeCooldown;
+        }
+
         if (Time.time > navTimer)
         {
             navTimer = Time.time + navRate;
@@ -74,10 +123,10 @@ public class Enemy : MonoBehaviour
                             newProjectile.direction = (Player.Instance.transform.position - bulletSpawnPoint).normalized;
                             attacks++;
                             PlayShootSound();
-                            if(attacks >= attackAmountBeforeCooldown)
+                            if(attacks >= modifiedAttackAmountBeforeCooldown)
                             {
                                 attacks = 0;
-                                attackTimer = Time.time + attackCooldown;
+                                attackTimer = Time.time + modifiedAttackCooldown;
                             }
                         }
                     }
