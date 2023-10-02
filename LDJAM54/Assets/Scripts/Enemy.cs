@@ -149,7 +149,7 @@ public class Enemy : MonoBehaviour
                 {
                     if (Physics.Linecast(bulletSpawnPoint, Player.Instance.transform.position, out hit, fireLayers))
                     {
-                        Debug.Log("Enemy sees: " + hit.transform.name);
+                        //Debug.Log("Enemy sees: " + hit.transform.name);
                         if (hit.transform.tag == "Player")
                         {
                             justAttacked = true;
@@ -191,7 +191,7 @@ public class Enemy : MonoBehaviour
 
     public void Die()
     {
-        Debug.Log("Kill enemy!");
+        //Debug.Log("Kill enemy!");
 
         if (isDead == false)
         {

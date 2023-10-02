@@ -46,18 +46,18 @@ public class LevelManager : MonoBehaviour
                 }
             }
 
-            Debug.Log("Destroy previous room.");
+            //Debug.Log("Destroy previous room.");
             Destroy(currentRoom.gameObject);
         }
 
         if(nextRoom)
         {
-            Debug.Log("Set new current room.");
+            //Debug.Log("Set new current room.");
             currentRoom = nextRoom;
             currentRoom.startDoorway.SetActive(true);
         }
 
-        Debug.Log("Spawn next room.");
+        //Debug.Log("Spawn next room.");
         nextRoom = SpawnRoom(currentRoom.endDoorway.transform.position, RoomDoorRotation(currentRoom));
     }
 

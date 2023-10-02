@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
 {
     public static Player Instance;
 
-    public const int PLAYER_START_HEALTH = 2000;
+    public const int PLAYER_START_HEALTH = 20;
     [SerializeField] CharacterController characterController;
     [SerializeField] LayerMask collisionLayers;
     [SerializeField] Transform head;
@@ -189,7 +189,7 @@ public class Player : MonoBehaviour
         {
             if (!jumpReleased)
             {
-                Debug.Log("ADDD");
+                //Debug.Log("ADDD");
                 velocity.y += jumpPowerAdd * Time.deltaTime;
                 jumpPressedTimer += Time.deltaTime;
                 if (jumpPressedTimer > 0.15f)
@@ -236,8 +236,8 @@ public class Player : MonoBehaviour
                 animation.runAnimation(1);
             }
             isIdle = false;
-            Debug.Log("Attack!");
-            Debug.DrawRay(transform.position, transform.forward * attackDistance, Color.yellow, duration:1);
+            //Debug.Log("Attack!");
+            //Debug.DrawRay(transform.position, transform.forward * attackDistance, Color.yellow, duration:1);
             attackTimer = Time.time + attackRate;
             PlayAttackSound();
             
@@ -332,7 +332,7 @@ public class Player : MonoBehaviour
     {
         if(other.tag == "RoomEnd")
         {
-            Debug.Log("Hit room end! " + other.gameObject.GetInstanceID());
+            //Debug.Log("Hit room end! " + other.gameObject.GetInstanceID());
             LevelManager.Instance.SpawnNextRoom();
             other.gameObject.SetActive(false);
             Destroy(other.gameObject);

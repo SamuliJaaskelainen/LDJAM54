@@ -17,7 +17,7 @@ public class Projectile : MonoBehaviour
 
         if (Physics.Linecast(transform.position, nextPosition, out hit, hitLayers))
         {
-            Debug.Log("Bullet hits: " + hit.transform.name);
+            //Debug.Log("Bullet hits: " + hit.transform.name);
             if (hit.transform.tag == "Player")
             {
                 hit.transform.SendMessage("Hurt", damage);

@@ -66,6 +66,11 @@ public class AudioManager : MonoBehaviour
             return;
         }
 
+        if(audioPoolObject.Count <= 0)
+        {
+            return;
+        }
+
         GameObject audioObject = audioPoolObject[0] as GameObject;
         AudioSource audioSource = audioObject.GetComponent<AudioSource>();
 
