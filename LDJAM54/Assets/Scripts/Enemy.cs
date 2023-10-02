@@ -28,47 +28,48 @@ public class Enemy : MonoBehaviour
     float attackTimer;
     bool justAttacked = false;
 
+    float screamsoundTimer = 0;
     float modifiedAttackCooldown;
     float modifiedAttackAmountBeforeCooldown;
 
     void Update()
     {
-        if (LevelManager.Instance.gameTime > 500.0f)
+        if (LevelManager.Instance.gameTime > 350.0f)
         {
             modifiedAttackCooldown = attackCooldown * 0.2f;
             modifiedAttackAmountBeforeCooldown = Mathf.CeilToInt((float)attackAmountBeforeCooldown * 1.8f);
         }
-        else if (LevelManager.Instance.gameTime > 450.0f)
+        else if (LevelManager.Instance.gameTime > 325.0f)
         {
             modifiedAttackCooldown = attackCooldown * 0.3f;
             modifiedAttackAmountBeforeCooldown = Mathf.CeilToInt((float)attackAmountBeforeCooldown * 1.7f);
         }
-        else if (LevelManager.Instance.gameTime > 400.0f)
+        else if (LevelManager.Instance.gameTime > 300.0f)
         {
             modifiedAttackCooldown = attackCooldown * 0.4f;
             modifiedAttackAmountBeforeCooldown = Mathf.CeilToInt((float)attackAmountBeforeCooldown * 1.6f);
         }
-        else if (LevelManager.Instance.gameTime > 350.0f)
+        else if (LevelManager.Instance.gameTime > 300.0f)
         {
             modifiedAttackCooldown = attackCooldown * 0.5f;
             modifiedAttackAmountBeforeCooldown = Mathf.CeilToInt((float)attackAmountBeforeCooldown * 1.5f);
         }
-        else if (LevelManager.Instance.gameTime > 300.0f)
+        else if (LevelManager.Instance.gameTime > 250.0f)
         {
             modifiedAttackCooldown = attackCooldown * 0.6f;
             modifiedAttackAmountBeforeCooldown = Mathf.CeilToInt((float)attackAmountBeforeCooldown * 1.4f);
         }
-        else if (LevelManager.Instance.gameTime > 250.0f)
+        else if (LevelManager.Instance.gameTime > 200.0f)
         {
             modifiedAttackCooldown = attackCooldown * 0.7f;
             modifiedAttackAmountBeforeCooldown = Mathf.CeilToInt((float)attackAmountBeforeCooldown * 1.3f);
         }
-        else if (LevelManager.Instance.gameTime > 200.0f)
+        else if (LevelManager.Instance.gameTime > 150.0f)
         {
             modifiedAttackCooldown = attackCooldown * 0.8f;
             modifiedAttackAmountBeforeCooldown = Mathf.CeilToInt((float)attackAmountBeforeCooldown * 1.2f);
         }
-        else if (LevelManager.Instance.gameTime > 150.0f)
+        else if (LevelManager.Instance.gameTime > 100.0f)
         {
             modifiedAttackCooldown = attackCooldown * 0.9f;
             modifiedAttackAmountBeforeCooldown = Mathf.CeilToInt((float)attackAmountBeforeCooldown * 1.1f);
@@ -78,6 +79,7 @@ public class Enemy : MonoBehaviour
             modifiedAttackCooldown = attackCooldown;
             modifiedAttackAmountBeforeCooldown = attackAmountBeforeCooldown;
         }
+        screamsoundTimer -= Time.deltaTime;
 
         if (Time.time > navTimer)
         {
@@ -89,16 +91,24 @@ public class Enemy : MonoBehaviour
                     Vector3 eyePositon = transform.position + Vector3.up * projectileYOffset;
                     if (Vector3.Distance(eyePositon, Player.Instance.transform.position) < attackRange)
                     {
-                        // TODO: Add screaming enemy audio
+                        if (screamsoundTimer <= 0)
+                        {
+                            PlayShootSound();
+                            screamsoundTimer = Random.Range(2.0f, 6.0f);
+                        }
+
                         Vector3 directionToPlayer = (transform.position - Player.Instance.transform.position).normalized;
                         Vector3 newDestination = new Vector3(transform.position.x + Random.insideUnitCircle.x * navDistance, transform.position.y, transform.position.z + Random.insideUnitCircle.y * navDistance);
                         newDestination += directionToPlayer * navDistance;
                         agent.SetDestination(newDestination);
+                        // Keith: this is a hack to switch to the running away animation
+                        GetComponentInChildren<SpriteAnimation>().runAnimation(0);
                     }
                 }
                 else
                 {
                     agent.SetDestination(new Vector3(transform.position.x + Random.insideUnitCircle.x * navDistance, transform.position.y, transform.position.z + Random.insideUnitCircle.y * navDistance));
+                    
                 }
             }
         }
@@ -199,6 +209,8 @@ public class Enemy : MonoBehaviour
                 AudioManager.Instance.PlaySound(Random.Range(29, 33), transform.position, 0.35f, 1f, false);
                 break;
             case 2:
+                //enemy type 3 has no shoot sound, instead it has a scream sound
+                AudioManager.Instance.PlaySound(Random.Range(59, 65), transform.position, 0.35f, 1f, false);
                 break;
                 
         }

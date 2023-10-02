@@ -302,6 +302,7 @@ public class Player : MonoBehaviour
         if(health <= 0)
         {
             isDead = true;
+            PlayDeathSound();
         }
 
         // Animate HP
@@ -375,12 +376,12 @@ public class Player : MonoBehaviour
     
     private void PlayHurtSound()    
     {
+        if (isDead) return;
         AudioManager.Instance.PlaySound(Random.Range(14,18), transform.position, 0.7f);
 
     }
     
-    private void PlayTentacleHitSound() 
-    {
+    private void PlayTentacleHitSound() {
         AudioManager.Instance.PlaySound(Random.Range(10,14), transform.position, 0.9f);
 
     }
@@ -389,6 +390,13 @@ public class Player : MonoBehaviour
     {
         AudioManager.Instance.PlaySound(Random.Range(18,22), transform.position, 0.5f);
     }
+    
+    private void PlayDeathSound()
+    {
+        // you need to add the vector3.right to correct the sound position
+        AudioManager.Instance.PlaySound(65, transform.position + Vector3.right, 1f);
+    }
+
 
     public void Screenshake(float strenght)
     {
