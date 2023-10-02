@@ -191,8 +191,7 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: 0833559481fc9b3499b6e550f38c2558,
-      type: 3}
+    m_HighlightedSprite: {fileID: 21300000, guid: 0833559481fc9b3499b6e550f38c2558, type: 3}
     m_PressedSprite: {fileID: 21300000, guid: 0833559481fc9b3499b6e550f38c2558, type: 3}
     m_SelectedSprite: {fileID: 21300000, guid: 0833559481fc9b3499b6e550f38c2558, type: 3}
     m_DisabledSprite: {fileID: 21300000, guid: 0833559481fc9b3499b6e550f38c2558, type: 3}
@@ -400,8 +399,7 @@ MonoBehaviour:
   m_text: Calamari Odyssey
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0579842e53214094292915f7428e072d, type: 2}
-  m_sharedMaterial: {fileID: -5902391926894981548, guid: 0579842e53214094292915f7428e072d,
-    type: 2}
+  m_sharedMaterial: {fileID: -5902391926894981548, guid: 0579842e53214094292915f7428e072d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -535,8 +533,7 @@ MonoBehaviour:
   m_text: Samuli Jaaskelainen | Keith Davis | Ilpo Riikonen
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0579842e53214094292915f7428e072d, type: 2}
-  m_sharedMaterial: {fileID: -5902391926894981548, guid: 0579842e53214094292915f7428e072d,
-    type: 2}
+  m_sharedMaterial: {fileID: -5902391926894981548, guid: 0579842e53214094292915f7428e072d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -670,8 +667,7 @@ MonoBehaviour:
   m_text: FEEED
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0579842e53214094292915f7428e072d, type: 2}
-  m_sharedMaterial: {fileID: -5902391926894981548, guid: 0579842e53214094292915f7428e072d,
-    type: 2}
+  m_sharedMaterial: {fileID: -5902391926894981548, guid: 0579842e53214094292915f7428e072d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1198,8 +1194,7 @@ MonoBehaviour:
   m_text: 0 humans consumed
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0579842e53214094292915f7428e072d, type: 2}
-  m_sharedMaterial: {fileID: -5902391926894981548, guid: 0579842e53214094292915f7428e072d,
-    type: 2}
+  m_sharedMaterial: {fileID: -5902391926894981548, guid: 0579842e53214094292915f7428e072d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1499,8 +1494,7 @@ MonoBehaviour:
   m_text: FEEED
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0579842e53214094292915f7428e072d, type: 2}
-  m_sharedMaterial: {fileID: -5902391926894981548, guid: 0579842e53214094292915f7428e072d,
-    type: 2}
+  m_sharedMaterial: {fileID: -5902391926894981548, guid: 0579842e53214094292915f7428e072d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1642,8 +1636,7 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: 0833559481fc9b3499b6e550f38c2558,
-      type: 3}
+    m_HighlightedSprite: {fileID: 21300000, guid: 0833559481fc9b3499b6e550f38c2558, type: 3}
     m_PressedSprite: {fileID: 21300000, guid: 0833559481fc9b3499b6e550f38c2558, type: 3}
     m_SelectedSprite: {fileID: 21300000, guid: 0833559481fc9b3499b6e550f38c2558, type: 3}
     m_DisabledSprite: {fileID: 21300000, guid: 0833559481fc9b3499b6e550f38c2558, type: 3}
@@ -1768,8 +1761,7 @@ MonoBehaviour:
   m_text: STORY
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0579842e53214094292915f7428e072d, type: 2}
-  m_sharedMaterial: {fileID: -5902391926894981548, guid: 0579842e53214094292915f7428e072d,
-    type: 2}
+  m_sharedMaterial: {fileID: -5902391926894981548, guid: 0579842e53214094292915f7428e072d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1900,11 +1892,19 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: FEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEED!
+  m_text: 'You hunger. You awaken. Too much light. Flickering.  Resonant hum. Cold
+    pressure on your mantle. A single tooth, held by meat. It shines. Pain. You grab
+    it, plunging it into the meat. A shriek. The meat collapses. You hunger. What
+    does the meat want? Layers of skin. Different textures and tastes. Tough. No
+    flavor. Dry, stringy. Soft and wet. Brittle. The best parts are scarce. The ground
+    is cold. The walls are cold. The ceiling is cold. You hunger. What is this place?
+    More meat. Another shriek. It cannot escape. You hunger. More layers. The best
+    parts are scarce. Does the meat hunger too? Are you trapped? The wall opens and
+    more meat appears. Heat. Pain. So much pain. Why does the meat do this? Another
+    shriek. The best parts are scarce. Cold. Silence. You hunger. '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0579842e53214094292915f7428e072d, type: 2}
-  m_sharedMaterial: {fileID: -5902391926894981548, guid: 0579842e53214094292915f7428e072d,
-    type: 2}
+  m_sharedMaterial: {fileID: -5902391926894981548, guid: 0579842e53214094292915f7428e072d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2123,8 +2123,7 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: 0833559481fc9b3499b6e550f38c2558,
-      type: 3}
+    m_HighlightedSprite: {fileID: 21300000, guid: 0833559481fc9b3499b6e550f38c2558, type: 3}
     m_PressedSprite: {fileID: 21300000, guid: 0833559481fc9b3499b6e550f38c2558, type: 3}
     m_SelectedSprite: {fileID: 21300000, guid: 0833559481fc9b3499b6e550f38c2558, type: 3}
     m_DisabledSprite: {fileID: 21300000, guid: 0833559481fc9b3499b6e550f38c2558, type: 3}
