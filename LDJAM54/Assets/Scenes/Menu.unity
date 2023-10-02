@@ -1892,16 +1892,17 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'You hunger. Too much light. Flickering.  Resonant hum. Cold pressure on
-    your mantle. A single tooth, held by meat. It shines. Pain. You grab it, plunging
-    it into the meat. A shriek. The meat collapses. You hunger. What does the meat
-    want? Layers of skin. Different textures and tastes. Tough. No flavor. Dry, stringy.
-    Soft and wet. Brittle. The best parts are scarce. The ground is cold. You hunger.
-    Does the meat hunger too? The walls are cold. More meat. No tooth. What is this
-    place? Another shriek. It cannot escape. You hunger. More layers. The best parts
-    are scarce. The ceiling is cold. Are you trapped? The wall opens and more meat
-    appears. No tooth. But heat. And pain. So much pain. Why does the meat do this?
-    Another shriek. The best parts are scarce. Cold. Silence. You hunger. '
+  m_text: 'Blinding light. Resonant hum. You hunger.  Cold pressure on your mantle.
+    Held by the meat. A single tooth. It shines. Held by the meat. Pain. You grab
+    it.  Your teeth are sharper. A shriek. The meat collapses. You hunger. What does
+    the meat want? Layers of skin. Tough. Dry and stringy. Soft and wet. Brittle.
+    The best parts are scarce. The ground is cold. You hunger. Does the meat hunger
+    too? The walls are cold. More meat. It does not have teeth. It cannot escape. 
+    A shriek.The meat collapses. What is this place? You hunger. More layers. The
+    best parts are scarce. The ceiling is cold. Are you trapped? The wall opens and
+    more meat appears. No teeth. But heat. Pain. So much pain. Why does the meat
+    do this? Another shriek. No more pain. Meat juice. The best parts are scarce.
+    Cold. Silence. You hunger. '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0579842e53214094292915f7428e072d, type: 2}
   m_sharedMaterial: {fileID: -5902391926894981548, guid: 0579842e53214094292915f7428e072d, type: 2}
@@ -2091,7 +2092,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -395}
+  m_AnchoredPosition: {x: 0, y: -422.39}
   m_SizeDelta: {x: 509.802, y: 214.754}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1858656313
