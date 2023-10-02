@@ -46,9 +46,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefabs:
   - {fileID: 9217896832142978517, guid: e7b94fe6967721341863a9a5afed849b, type: 3}
+  - {fileID: 9217896832142978517, guid: e7b94fe6967721341863a9a5afed849b, type: 3}
+  - {fileID: 9217896832142978517, guid: 49b857765422c8149a081f8e74c9922d, type: 3}
   - {fileID: 9217896832142978517, guid: 49b857765422c8149a081f8e74c9922d, type: 3}
   - {fileID: 9217896832142978517, guid: bdf85edba84dd9f4795e535093497d7d, type: 3}
   roomPrefabs:
   - {fileID: 3739916339783739562, guid: ac2a46941e9ac3e44924072b6e56602d, type: 3}
   - {fileID: 3739916339783739562, guid: affe54fd43b41214b9896d4fb5fceacb, type: 3}
   - {fileID: 3739916339783739562, guid: 92557fba5dd68544c87d02218a18c5bd, type: 3}
+  gameTime: 0
