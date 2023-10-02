@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Rendering.Universal;
@@ -102,7 +103,14 @@ public class Enemy : MonoBehaviour
                         newDestination += directionToPlayer * navDistance;
                         agent.SetDestination(newDestination);
                         // Keith: this is a hack to switch to the running away animation
-                        GetComponentInChildren<SpriteAnimation>().runAnimation(0);
+
+                        if(agent.velocity.magnitude <= 1)
+                        {
+                            GetComponentInChildren<SpriteAnimation>().runAnimation(2);
+                        }
+                        else {
+                            GetComponentInChildren<SpriteAnimation>().runAnimation(0);
+                        }
                     }
                 }
                 else
