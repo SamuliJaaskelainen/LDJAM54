@@ -31,4 +31,4 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 0fdc3437bd4059f4fa9f9592a9cc2f56, type: 3}
   - {fileID: 2800000, guid: 16d84e43eb83ca84381de7484539abeb, type: 3}
   changeInterval: 0.2
-  stopAtEnd: 1
+  stopAtEnd: 0
