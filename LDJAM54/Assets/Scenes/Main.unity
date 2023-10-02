@@ -245,29 +245,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2174660232371443721, guid: 49ff1d243e4a8f947a5681090202342b, type: 3}
-      propertyPath: m_fontSize
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 2174660232371443721, guid: 49ff1d243e4a8f947a5681090202342b, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 3007328402117395434, guid: 49ff1d243e4a8f947a5681090202342b, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 370.686
-      objectReference: {fileID: 0}
-    - target: {fileID: 3007328402117395434, guid: 49ff1d243e4a8f947a5681090202342b, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 169.677
-      objectReference: {fileID: 0}
-    - target: {fileID: 3007328402117395434, guid: 49ff1d243e4a8f947a5681090202342b, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -775.34
-      objectReference: {fileID: 0}
-    - target: {fileID: 3007328402117395434, guid: 49ff1d243e4a8f947a5681090202342b, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 455.167
+    - target: {fileID: 477189872113306024, guid: 49ff1d243e4a8f947a5681090202342b, type: 3}
+      propertyPath: attackRadius
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 3234782532465630167, guid: 49ff1d243e4a8f947a5681090202342b, type: 3}
       propertyPath: m_Name
@@ -312,10 +292,6 @@ PrefabInstance:
     - target: {fileID: 7581829017509423864, guid: 49ff1d243e4a8f947a5681090202342b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8556850078576011223, guid: 49ff1d243e4a8f947a5681090202342b, type: 3}
-      propertyPath: _amplitude
-      value: 0.01
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

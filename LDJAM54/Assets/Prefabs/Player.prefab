@@ -371,8 +371,7 @@ MonoBehaviour:
   m_text: 99
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 180c078accb3b2f4a8fc22cc6381a26e, type: 2}
-  m_sharedMaterial: {fileID: -1884786249880699945, guid: 180c078accb3b2f4a8fc22cc6381a26e,
-    type: 2}
+  m_sharedMaterial: {fileID: -1884786249880699945, guid: 180c078accb3b2f4a8fc22cc6381a26e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -589,7 +588,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42a449b22b3afaa4c9f1049bd0f4f350, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enable: 1
   _amplitude: 0.01
   _frequency: 15
   _tentacle: {fileID: 3122915778205977004}
@@ -743,7 +741,6 @@ MonoBehaviour:
     m_Bits: 257
   help: {fileID: 6111611027968261297}
   helpHelp: {fileID: 7768291215665193817}
-  mouseSensitivity: 0.2
   forwardSpeed: 33
   strafeSpeed: 33
   jumpPower: 2
@@ -754,7 +751,7 @@ MonoBehaviour:
   airDrag: 0.96
   attackRate: 0.33
   attackDistance: 1
-  attackRadius: 1
+  attackRadius: 1.25
   bounceForceUp: 7
   bounceForceForward: 50
 --- !u!1 &4176104648207272350
@@ -1268,8 +1265,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -825.3435, y: 471.29675}
-  m_SizeDelta: {x: 270.678, y: 137.417}
+  m_AnchoredPosition: {x: -775.34, y: 455.167}
+  m_SizeDelta: {x: 370.686, y: 169.677}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1471087351138675673
 CanvasRenderer:
@@ -1302,8 +1299,7 @@ MonoBehaviour:
   m_text: 'F1: Help'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 180c078accb3b2f4a8fc22cc6381a26e, type: 2}
-  m_sharedMaterial: {fileID: -1884786249880699945, guid: 180c078accb3b2f4a8fc22cc6381a26e,
-    type: 2}
+  m_sharedMaterial: {fileID: -1884786249880699945, guid: 180c078accb3b2f4a8fc22cc6381a26e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1327,8 +1323,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 45
-  m_fontSizeBase: 45
+  m_fontSize: 60
+  m_fontSizeBase: 60
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

@@ -112,7 +112,18 @@ public class Enemy : MonoBehaviour
     
     private void PlayDeathSound()
     {
-        AudioManager.Instance.PlaySound(Random.Range(23, 29), transform.position, 0.35f, 1f, false);
+        switch (enemyType) {
+            case 0:
+                AudioManager.Instance.PlaySound(Random.Range(37, 44), transform.position, 1f, 1f, false);
+                break;
+            case 1:
+                AudioManager.Instance.PlaySound(Random.Range(44, 51), transform.position, 1f, 1f, false);
+                break;
+            case 2:
+                AudioManager.Instance.PlaySound(Random.Range(51, 59), transform.position, 1f, 1f, false);
+                break;
+                
+        }
     }
     
     private void PlayShootSound()
