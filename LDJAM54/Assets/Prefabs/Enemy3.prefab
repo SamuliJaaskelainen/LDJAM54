@@ -115,7 +115,7 @@ GameObject:
   - component: {fileID: 3812249712748799491}
   - component: {fileID: 2222640047311651313}
   m_Layer: 8
-  m_Name: Enemy2
+  m_Name: Enemy3
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -184,20 +184,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 2222640047311651313}
-  navRate: 1
-  navDistance: 5
+  navRate: 0.5
+  navDistance: 8
   blood: {fileID: 9164941725788409794}
   fireLayers:
     serializedVersion: 2
-    m_Bits: 321
-  projectile: {fileID: 6373128485846439385, guid: e1760bbc6e1e9bb46beeac9b2b7b2a2d,
-    type: 3}
-  projectileYOffset: 0.5
-  fireRate: 0.05
-  attackAmountBeforeCooldown: 7
-  attackCooldown: 2
-  attackRange: 20
-  enemyType: 1
+    m_Bits: 0
+  projectile: {fileID: 0}
+  projectileYOffset: 0.8
+  fireRate: 1
+  attackAmountBeforeCooldown: 1
+  attackCooldown: 1
+  attackRange: 6
+  enemyType: 2
   isDead: 0
 --- !u!195 &2222640047311651313
 NavMeshAgent:
@@ -209,7 +208,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 1.5
+  m_Speed: 8
   m_Acceleration: 30
   avoidancePriority: 50
   m_AngularSpeed: 120

@@ -35,12 +35,26 @@ public class Enemy : MonoBehaviour
             navTimer = Time.time + navRate;
             if (agent.isOnNavMesh)
             {
-                agent.SetDestination(new Vector3(transform.position.x + Random.insideUnitCircle.x * navDistance, transform.position.y, transform.position.z + Random.insideUnitCircle.y * navDistance));
+                if (enemyType == 2)
+                {
+                    Vector3 eyePositon = transform.position + Vector3.up * projectileYOffset;
+                    if (Vector3.Distance(eyePositon, Player.Instance.transform.position) < attackRange)
+                    {
+                        // TODO: Add screaming enemy audio
+                        Vector3 directionToPlayer = (transform.position - Player.Instance.transform.position).normalized;
+                        Vector3 newDestination = new Vector3(transform.position.x + Random.insideUnitCircle.x * navDistance, transform.position.y, transform.position.z + Random.insideUnitCircle.y * navDistance);
+                        newDestination += directionToPlayer * navDistance;
+                        agent.SetDestination(newDestination);
+                    }
+                }
+                else
+                {
+                    agent.SetDestination(new Vector3(transform.position.x + Random.insideUnitCircle.x * navDistance, transform.position.y, transform.position.z + Random.insideUnitCircle.y * navDistance));
+                }
             }
         }
-
         
-        if (Time.time > fireTimer)
+        if (Time.time > fireTimer && enemyType != 2)
         {
             justAttacked = false;
             fireTimer = Time.time + fireRate;
